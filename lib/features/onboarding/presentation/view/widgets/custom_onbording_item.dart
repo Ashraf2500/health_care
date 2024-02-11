@@ -28,7 +28,7 @@ class CustomOnboardingItem extends StatelessWidget {
               Container(
                 height: _heightScreen * 0.25,
                 decoration: BoxDecoration(
-                  color: ColorHelper.mainShadow,
+                  color: ColorHelper.whiteColor,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -50,7 +50,7 @@ class CustomOnboardingItem extends StatelessWidget {
           child: Text(
             onboardingItem.description,
             textAlign: TextAlign.center,
-            style: TextStyleHelper.style14S,
+            style: TextStyleHelper.style14S.copyWith(color: ColorHelper.whiteColor),
           ),
         ),
       ],

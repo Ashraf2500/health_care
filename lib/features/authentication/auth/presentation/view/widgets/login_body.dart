@@ -11,48 +11,97 @@ class LoginBody extends StatelessWidget {
 
     return Stack(
       children: [
-        CustomBackgroundGradient(),
+        CustomBackgroundImage(),
         Padding(
           padding:  EdgeInsets.all(FixedVariables.ScreenPadding),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: _heightScreen*0.08,
+                height: _heightScreen*0.18,
               ),
-              Text(
-                "Welcome",
-                style: TextStyleHelper.style24B,
+              Row(
+                children: [
+                  Text(
+                    "Welcome",
+                    style: TextStyleHelper.style24B,
+                  ),
+                  Text(
+                    " Back !",
+                    style: TextStyleHelper.style24B.copyWith(color: ColorHelper.mainColor),
+                  ),
+                ],
               ),
+
               SizedBox(
                 height: _heightScreen*0.01,
               ),
               Text(
-                "Please Sign in to continue",
-                style: TextStyleHelper.style16B,
+                "Sign in",
+                style: TextStyleHelper.style16B.copyWith(color: ColorHelper.blackColor.withOpacity(0.7)),
               ),
               SizedBox(
-                height: _heightScreen*0.1,
+                height: _heightScreen*0.06,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: CustomTextFormField(
-                  hintText: "Phone",
-                  borderColor: ColorHelper.blackColor.withOpacity(0.5),
-                ),
+              CustomTextFormField(
+                hintText: "Phone",
+                marginVerticalSides: _heightScreen*0.01,
+                prefixIcon: Icon(Icons.phone_android,color: ColorHelper.blackColor.withOpacity(0.6),),
+                borderColor: ColorHelper.blackColor.withOpacity(0.5),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: CustomTextFormField(
-                  hintText: "Phone",
-                  borderColor: ColorHelper.blackColor.withOpacity(0.5),
+              CustomTextFormField(
+                hintText: "Password",
+                marginVerticalSides: _heightScreen*0.01,
+                prefixIcon: Icon(Icons.lock_outline,color: ColorHelper.blackColor.withOpacity(0.6),),
+                borderColor: ColorHelper.blackColor.withOpacity(0.5),
+              ),
+              SizedBox(
+                height: _heightScreen*0.01,
+              ),
+              Align(
+                alignment: Alignment.topRight,
+                child: InkWell(
+                  onTap: (){
+                    RoutingHelper.navToTakePhone(context);
+                  },
+                  child: Text(
+                    "Forget Password",
+                    style: TextStyleHelper.style12B.copyWith(color: ColorHelper.mainColor),
+                  ),
                 ),
               ),
               SizedBox(
-                height: _heightScreen*0.05,
+                height: _heightScreen*0.08,
               ),
               CustomButton(
                   onPressed: (){},
-                  text: "Login"
+                  text: "Sign in",
+
+              ),
+              SizedBox(
+                height: _heightScreen*0.04,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "already have account ?  ",
+                    style: TextStyleHelper.style10B,
+                  ),
+                  InkWell(
+                    onTap: (){
+                      RoutingHelper.navToSignUp(context);
+                    },
+                    child: Text(
+                      "Sign Up",
+                      style: TextStyleHelper.style10B.copyWith(
+                          color: ColorHelper.mainColor,
+                          decoration: TextDecoration.underline ,
+                          decorationColor: ColorHelper.mainColor
+                      ),
+                    ),
+                  )
+                ],
               ),
             ],
           ),

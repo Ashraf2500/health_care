@@ -31,6 +31,8 @@ class ColorHelper {
       backWhiteColor,
       backWhiteColor,
       backWhiteColor,
+      backWhiteColor,
+      backWhiteColor,
       mainShadow,
 
     ],

@@ -39,7 +39,9 @@ class _OnboardingBodyState extends State<OnboardingBody> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // skip text
+              SizedBox(
+                height: _heightScreen*0.02,
+              ),
               Align(
                 alignment: Alignment.topRight,
                 child: TextButton(
@@ -48,7 +50,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
                   },
                   child: Text(
                     "Skip",
-                    style: TextStyleHelper.style14S.copyWith(color: ColorHelper.mainColor),
+                    style: TextStyleHelper.style16S.copyWith(color: ColorHelper.mainColor),
                   ),
 
                 ),

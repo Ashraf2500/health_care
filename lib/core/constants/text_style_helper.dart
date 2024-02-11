@@ -3,7 +3,14 @@ import '../core_exports.dart';
 
 class TextStyleHelper {
 
-  static const style12R =TextStyle(
+  static const style10B =TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w700,
+  );
+
+  //--------------------------------------------------
+
+   static final style12R =TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
@@ -22,6 +29,8 @@ class TextStyleHelper {
     fontSize: 12,
     fontWeight: FontWeight.w700,
   );
+
+  //--------------------------------------------------
 
   static const style14R =TextStyle(
     fontSize: 14,
@@ -43,6 +52,7 @@ class TextStyleHelper {
     fontWeight: FontWeight.w700,
   );
 
+   //--------------------------------------------------
 
 
   static const style16R =TextStyle(
@@ -65,7 +75,10 @@ class TextStyleHelper {
     fontWeight: FontWeight.w700,
   );
 
-  static const style18R =TextStyle(
+   //--------------------------------------------------
+
+
+   static const style18R =TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w400,
   );
@@ -85,7 +98,9 @@ class TextStyleHelper {
     fontWeight: FontWeight.w700,
   );
 
-  static const style20M =TextStyle(
+   //--------------------------------------------------
+
+   static const style20M =TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w500,
   );
@@ -100,7 +115,10 @@ class TextStyleHelper {
     fontWeight: FontWeight.w700,
   );
 
-  static const style24B =TextStyle(
+   //--------------------------------------------------
+
+
+   static const style24B =TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w700,
   );

@@ -17,31 +17,34 @@ class AuthTypeBody extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: _heightScreen*0.1,
+                height: _heightScreen*0.15,
               ),
-              SvgPicture.asset(ImageHelper.mainLogo),
+              SvgPicture.asset(
+                ImageHelper.mainLogo,
+                height: _heightScreen*0.15,
+              ),
               SizedBox(
-                height: 16,
+                height: _heightScreen*0.014,
               ),
               Text(
                 "HEALTH CARE",
                 style: TextStyleHelper.style14S.copyWith(color: ColorHelper.mainColor),
               ),
               SizedBox(
-                height: 8,
+                height: _heightScreen*0.01,
               ),
               Text(
                 "Let's get started!",
                 style: TextStyleHelper.style14S,
               ),
-              SizedBox(
-                height: 4,
+              /*SizedBox(
+                height: _heightScreen*0.01,
               ),
               Text(
                 "Sign up to enjoy the features we’ve Provided ,and stay healthy!",
                 style: TextStyleHelper.style12M.copyWith(color: ColorHelper.grayText),
                 textAlign: TextAlign.center,
-              ),
+              ),*/
 
               Spacer(),
               CustomButton(
@@ -52,13 +55,15 @@ class AuthTypeBody extends StatelessWidget {
                 marginVerticalSides: _heightScreen*0.01,
               ),
               CustomButton(
-                onPressed: (){},
+                onPressed: (){
+                  RoutingHelper.navToSignUp(context);
+                },
                 text: "Sign Up",
                 isOutlined: true,
                 marginVerticalSides: _heightScreen*0.01,
               ),
               SizedBox(
-                height: _heightScreen*0.05,
+                height: _heightScreen*0.06,
               ),
             ],
           ),

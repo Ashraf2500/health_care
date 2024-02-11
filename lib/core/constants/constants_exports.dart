@@ -4,4 +4,5 @@ export 'text_style_helper.dart';
 export 'fixed_variables.dart';
 export 'routing_helper.dart';
 export 'strings_routing.dart';
+export 'strings_app.dart';
 export 'packages_exports.dart';

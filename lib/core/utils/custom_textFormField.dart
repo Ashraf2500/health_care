@@ -29,6 +29,9 @@ class CustomTextFormField extends StatelessWidget {
      this.validation,
      this.maxLength,
      this.inputFormatters,
+     this.marginHorizontalSides,
+     this.marginVerticalSides,
+     this.marginAllSides
 
   }) : super(key: key);
 
@@ -53,67 +56,75 @@ class CustomTextFormField extends StatelessWidget {
    final int? maxLength;
    final TextEditingController? controller;
    final List<TextInputFormatter>? inputFormatters;
+   final double? marginAllSides ;
+   final double? marginHorizontalSides ;
+   final double? marginVerticalSides ;
    final validation;
 
 
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      validator: validation,
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: hintStyle,
-        filled: enableFilled ?? true,
-        fillColor:backgroundFilled?? Color(0x0A000000),
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: prefixIcon,
-        ),
-        suffixIcon: suffixIcon,
-        prefixIconConstraints: BoxConstraints(
-          maxHeight: (sizePrefixIcon!=null)?sizePrefixIcon!+25 :55*0.9,
-          maxWidth: (sizePrefixIcon!=null)?sizePrefixIcon!+25 : 55*0.9,
-        ),
-        suffixIconConstraints: BoxConstraints(
-          maxHeight: (sizeSuffixIcon!=null)?sizeSuffixIcon!+25 :55*0.9,
-          maxWidth: (sizeSuffixIcon!=null)?sizeSuffixIcon!+25 : 55*0.9
-        ),
-        constraints: BoxConstraints(
-          maxHeight: heightFilled ?? 55,
-          maxWidth:  widthFilled ?? MediaQuery.of(context).size.width,
-
-        ),
-        //contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: ),
-        enabledBorder: (enableBorder==true || enableBorder==null)? _buildOutlineBorder() :null,
-        focusedBorder: (enableBorder==true || enableBorder==null)? _buildFocusedOutlineBorder():_buildFocusedUnderlineInputBorder(),
-        focusedErrorBorder:  OutlineInputBorder(
-          borderRadius:BorderRadius.all(Radius.circular(8.0)),
-          borderSide: BorderSide(
-            color:ColorHelper.redColor.shade300,
-            width: 2,
-           
+    return Padding(
+      padding:  (marginAllSides!=null)?EdgeInsets.all(marginAllSides!)
+          :EdgeInsets.symmetric(vertical:marginVerticalSides??0 ,
+          horizontal: marginHorizontalSides??0),
+      child: TextFormField(
+        controller: controller,
+        validator: validation,
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: hintStyle,
+          filled: enableFilled ?? true,
+          fillColor:backgroundFilled?? Color(0x0A000000),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: prefixIcon,
           ),
-        ),
-        errorBorder:  OutlineInputBorder(
-          borderRadius:BorderRadius.all(Radius.circular(8.0)),
-          borderSide: BorderSide(
-            color:ColorHelper.redColor.shade300,
-            width: 1,
-
+          suffixIcon: suffixIcon,
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: (sizePrefixIcon!=null)?sizePrefixIcon!+25 :55*0.9,
+            maxWidth: (sizePrefixIcon!=null)?sizePrefixIcon!+25 : 55*0.9,
+          ),
+          suffixIconConstraints: BoxConstraints(
+            maxHeight: (sizeSuffixIcon!=null)?sizeSuffixIcon!+25 :55*0.9,
+            maxWidth: (sizeSuffixIcon!=null)?sizeSuffixIcon!+25 : 55*0.9
+          ),
+          constraints: BoxConstraints(
+            maxHeight: heightFilled ?? 55,
+            maxWidth:  widthFilled ?? MediaQuery.of(context).size.width,
 
           ),
+          //contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: ),
+          enabledBorder: (enableBorder==true || enableBorder==null)? _buildOutlineBorder() :null,
+          focusedBorder: (enableBorder==true || enableBorder==null)? _buildFocusedOutlineBorder():_buildFocusedUnderlineInputBorder(),
+          focusedErrorBorder:  OutlineInputBorder(
+            borderRadius:BorderRadius.all(Radius.circular(8.0)),
+            borderSide: BorderSide(
+              color:ColorHelper.redColor.shade300,
+              width: 2,
+
+            ),
+          ),
+          errorBorder:  OutlineInputBorder(
+            borderRadius:BorderRadius.all(Radius.circular(8.0)),
+            borderSide: BorderSide(
+              color:ColorHelper.redColor.shade300,
+              width: 1,
+
+
+            ),
+          ),
         ),
+        style: textStyle,
+        obscureText: obscureText?? false,
+        textAlignVertical: textAlignVertical??TextAlignVertical.center,
+        keyboardType:keyboardType ,
+        autofocus:autofocus ?? false,
+        inputFormatters: inputFormatters,
+        maxLength: maxLength,
+
       ),
-      style: textStyle,
-      obscureText: obscureText?? false,
-      textAlignVertical: textAlignVertical??TextAlignVertical.center,
-      keyboardType:keyboardType ,
-      autofocus:autofocus ?? false,
-      inputFormatters: inputFormatters,
-      maxLength: maxLength,
-
     );
   }
 

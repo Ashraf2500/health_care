@@ -2,6 +2,8 @@
 class ImageHelper {
 
   static const appointment = "assets/images/png_images/appointment.png";
+  static const rectangle1 = "assets/images/png_images/Rectangle1.png";
+  static const rectangle2 = "assets/images/png_images/Rectangle2.png";
 
   static const _icons = "assets/images/png_images/icons";
   static const _persons = "assets/images/png_images/persons/person";
@@ -23,7 +25,7 @@ class ImageHelper {
 
 
   static const mainLogo   = "$_svg/logo/logo.svg";
-  static const whiteLogo   = "$_svg/logo/whiteLogo.png";
+  static const whiteLogo   = "$_svg/logo/logo_white.svg";
 
 
   static const person1 = "$_persons 1.png";

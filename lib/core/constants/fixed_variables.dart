@@ -5,4 +5,5 @@ class FixedVariables {
   static const double heightButton = 55;
   static const double ScreenPadding = 32;
   static const double ScreenPaddingPercent = 0.08;
+  static const int pageTransition = 600;
 }
