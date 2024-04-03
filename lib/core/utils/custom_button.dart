@@ -57,7 +57,7 @@ class CustomButton extends StatelessWidget {
              heightButton?? FixedVariables.heightButton,
            ),
            shape: RoundedRectangleBorder(
-             borderRadius: borderRadius ?? BorderRadius.circular(FixedVariables.radius),
+             borderRadius: borderRadius ?? BorderRadius.circular(FixedVariables.radius8),
            ),
          ),
 
@@ -86,7 +86,7 @@ class CustomButton extends StatelessWidget {
                side: BorderSide(color: outlinedBorderColor??ColorHelper.mainColor),
                shape: RoundedRectangleBorder(
                  borderRadius: borderRadius ??
-                     BorderRadius.circular(FixedVariables.radius),
+                     BorderRadius.circular(FixedVariables.radius8),
                ),
              ),
 

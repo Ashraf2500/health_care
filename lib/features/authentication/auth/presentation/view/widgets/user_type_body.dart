@@ -8,13 +8,12 @@ class UserTypeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
-    final double _widthScreen =  MediaQuery.of(context).size.width;
 
     return Stack(
       children: [
-        CustomBackgroundGradient(),
+       // CustomBackgroundGradient(),
         Padding(
-          padding:  EdgeInsets.all(FixedVariables.ScreenPadding),
+          padding:  EdgeInsets.all(FixedVariables.ScreenPadding32),
           child: Column(
              children: [
                SizedBox(
@@ -45,7 +44,7 @@ class UserTypeBody extends StatelessWidget {
 
                    RoutingHelper.navToAuthType(context);
                  },
-                 text: "User",
+                 text: "Patient",
                  isOutlined: true,
                  marginVerticalSides: _heightScreen*0.01,
                ),

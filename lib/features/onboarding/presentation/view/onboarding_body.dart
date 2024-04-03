@@ -34,7 +34,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
         CustomBackgroundGradient(),
         Padding(
           padding:  EdgeInsets.all(
-            FixedVariables.ScreenPadding,
+            FixedVariables.ScreenPadding32,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +82,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
               CustomButton(
                 onPressed: (){
                   _onboardingController.nextPage(
-                    duration: Duration(milliseconds: 1000),
+                    duration: Duration(milliseconds: 600),
                     curve: Curves.easeOut,
                   );
                   (_currentOnboarding==_listOnboardingData.length-1)?RoutingHelper.navToUserType(context):null;

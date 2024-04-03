@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:health_care/features/features_exports.dart';
 
@@ -16,6 +14,7 @@ class _PageRouting {
   }
 }
 class RoutingHelper {
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case StringsRouting.splash:
@@ -44,6 +43,25 @@ class RoutingHelper {
 
       case StringsRouting.changePassword:
         return _PageRouting.page(settings, ChangePasswordView());
+
+      case StringsRouting.doctorsDepartments:
+        return _PageRouting.page(settings, OnboardingView());
+
+      case StringsRouting.mainScreen:
+        return _PageRouting.page(settings, MainScreenView());
+
+      case StringsRouting.doctorInfo:
+        return _PageRouting.page(settings, DoctorInfoView());
+
+      case StringsRouting.bookAppointmentTime:
+        return _PageRouting.page(settings, OnboardingView());
+
+      case StringsRouting.bookAppointmentInfo:
+        return _PageRouting.page(settings, OnboardingView());
+
+      case StringsRouting.profileGeneralInfo:
+        return _PageRouting.page(settings, CustomGeneralInfo());
+
 
       default:
         return _PageRouting.page(settings, SplashView());
@@ -88,6 +106,17 @@ class RoutingHelper {
   }
   static void navToChangePassword(BuildContext context) {
     Navigator.pushReplacementNamed(context, StringsRouting.changePassword);
+  }
+
+  static void navToMainScreen(BuildContext context) {
+    Navigator.pushNamedAndRemoveUntil(context, StringsRouting.mainScreen,(route) => false,);
+  }
+  static void navToDoctorInfo(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.doctorInfo);
+  }
+
+  static void navToProfileGeneralInfo(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.profileGeneralInfo);
   }
 
 }

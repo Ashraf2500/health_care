@@ -7,18 +7,17 @@ class LoginBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
-    final double _widthScreen =  MediaQuery.of(context).size.width;
 
     return Stack(
       children: [
         CustomBackgroundImage(),
         Padding(
-          padding:  EdgeInsets.all(FixedVariables.ScreenPadding),
+          padding:  EdgeInsets.all(FixedVariables.ScreenPadding32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: _heightScreen*0.18,
+                height: _heightScreen*0.14,
               ),
               Row(
                 children: [
@@ -71,10 +70,12 @@ class LoginBody extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: _heightScreen*0.08,
+                height: _heightScreen*0.13,
               ),
               CustomButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    RoutingHelper.navToMainScreen(context);
+                  },
                   text: "Sign in",
 
               ),

@@ -5,6 +5,7 @@ class ColorHelper {
   static const whiteColor = Color(0xffffffff);
   static const blackColor = Color(0xff000000);
   static const backWhiteColor = Color(0xffF9F9F9);
+  //static const backWhiteColor = Color(0xfff2f2f2);
 
 
   static const mainColor = Color(0xff0A828A);
@@ -18,12 +19,17 @@ class ColorHelper {
   static const steelBlueText = Color(0xff677294);
 
   static const activeStar = Color(0xffF6D060);
-  static const noActiveStar = Color(0xffE2E5EA);
+  static const noActiveStar = Color(0xffd3d7df);
 
   static const messageSend = Color(0xff0B8FAC);
   static const messageReceive = Color(0xffD9D9D9);
 
   static const redColor = Colors.red;
+
+  static const boxShadow = Color(0xFF757575);
+  static const backgroundSearchBar = Color(0xffecf8f8);
+
+  static Color gray300 = Colors.grey.shade300;
 
   static const onboardingLinearGradient = LinearGradient(
     colors: [

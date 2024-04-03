@@ -3,6 +3,17 @@ import '../core_exports.dart';
 
 class TextStyleHelper {
 
+  static const style8R =TextStyle(
+    fontSize: 8,
+    fontWeight: FontWeight.w400,
+  );
+
+  //--------------------------------------------------
+  static const style10R =TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+  );
+
   static const style10B =TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w700,

@@ -31,7 +31,8 @@ class CustomTextFormField extends StatelessWidget {
      this.inputFormatters,
      this.marginHorizontalSides,
      this.marginVerticalSides,
-     this.marginAllSides
+     this.marginAllSides,
+     this.onSubmitted,
 
   }) : super(key: key);
 
@@ -60,7 +61,7 @@ class CustomTextFormField extends StatelessWidget {
    final double? marginHorizontalSides ;
    final double? marginVerticalSides ;
    final validation;
-
+   void Function(String text)?  onSubmitted ;
 
 
   @override
@@ -72,6 +73,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         validator: validation,
+        onFieldSubmitted:onSubmitted,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: hintStyle,
@@ -96,7 +98,7 @@ class CustomTextFormField extends StatelessWidget {
 
           ),
           //contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: ),
-          enabledBorder: (enableBorder==true || enableBorder==null)? _buildOutlineBorder() :null,
+          enabledBorder: (enableBorder==true || enableBorder==null)? _buildOutlineBorder() :_buildUnderlineInputBorder(),
           focusedBorder: (enableBorder==true || enableBorder==null)? _buildFocusedOutlineBorder():_buildFocusedUnderlineInputBorder(),
           focusedErrorBorder:  OutlineInputBorder(
             borderRadius:BorderRadius.all(Radius.circular(8.0)),
@@ -150,6 +152,15 @@ class CustomTextFormField extends StatelessWidget {
      );
    }
 
+   UnderlineInputBorder _buildUnderlineInputBorder() {
+     return UnderlineInputBorder(
+       borderSide: BorderSide(
+         width: 1,
+         color: borderColor ?? ColorHelper.mainColor,
+       ),
+     );
+   }
+
    UnderlineInputBorder _buildFocusedUnderlineInputBorder() {
      return UnderlineInputBorder(
        borderSide: BorderSide(
@@ -158,6 +169,8 @@ class CustomTextFormField extends StatelessWidget {
        ),
      );
    }
+
+
 }
 
 

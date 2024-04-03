@@ -50,7 +50,7 @@ class CustomOnboardingItem extends StatelessWidget {
           child: Text(
             onboardingItem.description,
             textAlign: TextAlign.center,
-            style: TextStyleHelper.style14S.copyWith(color: ColorHelper.whiteColor),
+            style: TextStyleHelper.style14S,
           ),
         ),
       ],

@@ -5,27 +5,86 @@ class ImageHelper {
   static const rectangle1 = "assets/images/png_images/Rectangle1.png";
   static const rectangle2 = "assets/images/png_images/Rectangle2.png";
 
-  static const _icons = "assets/images/png_images/icons";
+  static const rectangleSvg1 = "assets/images/svg_images/Rectangle1.svg";
+  static const rectangleSvg2 = "assets/images/svg_images/Rectangle2.svg";
+  static const pin = "assets/images/svg_images/pin.svg";
+
   static const _persons = "assets/images/png_images/persons/person";
+  static const _doctors = "assets/images/png_images/doctors";
+  static const _Icon = "assets/images/png_images/icons";
   static const _lottie = "assets/images/svg_images/lottie";
   static const _svg = "assets/images/svg_images";
+  static const _svgIcon = "assets/images/svg_images/icons";
 
-  static const logo        = "$_icons/logo.png";
-  static const logoWhite   = "$_icons/logo_white.png";
-  static const chatBot     = "$_icons/chatBot.png";
-  static const doctorIcon  = "$_icons/doctor_icon.png";
-  static const heart       = "$_icons/heart.png";
-  static const history     = "$_icons/history.png";
-  static const sendIcon    = "$_icons/send_icon.png";
-  static const dentistIcon = "$_icons/dentist_icon.png";
-  static const testXRay    = "$_icons/test_x_ray.png";
-  static const trueMark    = "$_icons/true_mark.png";
-  static const voiceIcon   = "$_icons/voice_icon.png";
-  static const bonesIcon   = "$_icons/chatBot.png";
-
+//-----------------------------------------------------------------
 
   static const mainLogo   = "$_svg/logo/logo.svg";
   static const whiteLogo   = "$_svg/logo/logo_white.svg";
+
+  static const historyIcon  = "$_svgIcon/history.svg";
+  static const chatBotIcon  = "$_svgIcon/chatBot.svg";
+  static const doctorIcon  = "$_svgIcon/doctor.svg";
+  static const doctorsIcon  = "$_svgIcon/doctors.svg";
+  static const patientsIcon  = "$_svgIcon/patients.svg";
+  static const testXRayIcon  = "$_svgIcon/test_x_ray.svg";
+
+  static const personIcon  = "$_svgIcon/person_icon.svg";
+  static const scheduleIcon  = "$_svgIcon/calendar_icon.svg";
+  static const notificationIcon  = "$_svgIcon/notification_icon.svg";
+  static const phoneIcon  = "$_svgIcon/phone_icon.svg";
+  static const rateIcon  = "$_svgIcon/rate_icon.svg";
+  static const shareIcon  = "$_svgIcon/share_icon.svg";
+  static const signOutIcon  = "$_svgIcon/signout_icon.svg";
+
+  static const personFillIcon  = "$_svgIcon/fill_icons/person_fill_icon.svg";
+  static const historyFillIcon  = "$_svgIcon/fill_icons/history_fill_icon.svg";
+  static const scheduleFillIcon  = "$_svgIcon/fill_icons/calendar_fill_icon.svg";
+  static const notificationFillIcon  = "$_svgIcon/fill_icons/notification_fill_icon.svg";
+  static const phoneFillIcon  = "$_svgIcon/fill_icons/phone_fill_icon.svg";
+  static const rateFillIcon  = "$_svgIcon/fill_icons/rate_fill_icon.svg";
+  static const shareFillIcon  = "$_svgIcon/fill_icons/share_fill_icon.svg";
+  static const logoutFillIcon  = "$_svgIcon/fill_icons/logout_fill_icon.svg";
+
+
+  //-------------------------------------------------------------------
+  static const chatIcon  = "$_Icon/chat_icon.png";
+  static const calenderIcon  = "$_Icon/calender_icon.png";
+
+
+
+  static const doctor_1  = "$_doctors/doctor_1.png";
+  static const doctor_2  = "$_doctors/doctor_2.png";
+  static const doctor_3  = "$_doctors/doctor_3.png";
+  static const doctor_4  = "$_doctors/doctor_4.png";
+  static const doctor_5  = "$_doctors/doctor_5.png";
+  static const doctor_6  = "$_doctors/doctor_6.png";
+  static const doctor_7  = "$_doctors/doctor_7.png";
+  static const doctor_8  = "$_doctors/doctor_8.png";
+  static const doctor_9  = "$_doctors/doctor_9.png";
+  static const doctor_10 = "$_doctors/doctor_10.png";
+  static const doctor_11 = "$_doctors/doctor_11.png";
+  static const doctor_12 = "$_doctors/doctor_12.png";
+  static const doctor_13 = "$_doctors/doctor_13.png";
+  static const doctor_14 = "$_doctors/doctor_14.png";
+  static const doctor_15 = "$_doctors/doctor_15.png";
+  static const doctor_16 = "$_doctors/doctor_16.png";
+  static const doctor_17 = "$_doctors/doctor_17.png";
+  static const doctor_18 = "$_doctors/doctor_18.png";
+  static const doctor_19 = "$_doctors/doctor_19.png";
+  static const doctor_20 = "$_doctors/doctor_20.png";
+  static const doctor_21 = "$_doctors/doctor_21.png";
+  static const doctor_22 = "$_doctors/doctor_22.png";
+  static const doctor_23 = "$_doctors/doctor_23.png";
+  static const doctor_24 = "$_doctors/doctor_24.png";
+  static const doctor_25 = "$_doctors/doctor_25.png";
+  static const doctor_26 = "$_doctors/doctor_26.png";
+  static const doctor_27 = "$_doctors/doctor_27.png";
+  static const doctor_28 = "$_doctors/doctor_28.png";
+  static const doctor_29 = "$_doctors/doctor_29.png";
+  static const doctor_30 = "$_doctors/doctor_30.png";
+  static const doctor_31 = "$_doctors/doctor_31.png";
+  static const doctor_32 = "$_doctors/doctor_32.png";
+  static const doctor_33 = "$_doctors/doctor_33.png";
 
 
   static const person1 = "$_persons 1.png";
@@ -39,6 +98,12 @@ class ImageHelper {
   static const person9 = "$_persons 9.png";
   static const person10 = "$_persons 10.png";
   static const person11 = "$_persons 11.png";
+  static const person12 = "$_persons 12.png";
+  static const person13 = "$_persons 13.png";
+  static const person14 = "$_persons 14.png";
+  static const person15 = "$_persons 15.png";
+  static const person16 = "$_persons 16.png";
+  static const person17 = "$_persons 17.png";
 
 
 
@@ -98,16 +163,5 @@ class ImageHelper {
 
 
 }
-
-/*
-* deleting for repeating
-* 30
-* 29
-* 22
-* 28
-*
-*
-* */
-
 
 

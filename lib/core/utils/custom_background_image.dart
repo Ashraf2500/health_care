@@ -25,16 +25,19 @@ class CustomBackgroundImage extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.topRight,
                   children: [
-                    Image.asset(
-                      ImageHelper.rectangle1,
+                    SvgPicture.asset(
+                      ImageHelper.rectangleSvg1,
                       color: ColorHelper.mainShadow,
                       width: _widthScreen * 0.484,
-                      height: _heightScreen * 0.167, //142
+                      height: _heightScreen * 0.143,
+                      // width: _widthScreen * 0.484,
+                      // height: _heightScreen * 0.167, //142
                     ),
-                    Image.asset(
-                      ImageHelper.rectangle1,
+                    SvgPicture.asset(
+                      ImageHelper.rectangleSvg1,
                       color: ColorHelper.mainColor,
                       height: _heightScreen * 0.134, //114
+                      //height: _heightScreen * 0.134, //114
                     ),
                   ],
                 ),
@@ -46,16 +49,19 @@ class CustomBackgroundImage extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.bottomLeft,
                   children: [
-                    Image.asset(
-                      ImageHelper.rectangle2,
+                    SvgPicture.asset(
+                      ImageHelper.rectangleSvg2,
                       color: ColorHelper.mainShadow,
                       width: _widthScreen * 0.339,
-                      height: _heightScreen * 0.098,
+                      height: _heightScreen * 0.076,
+                      // width: _widthScreen * 0.339,
+                      // height: _heightScreen * 0.098,
                     ),
-                    Image.asset(
-                      ImageHelper.rectangle2,
+                    SvgPicture.asset(
+                      ImageHelper.rectangleSvg2,
                       color: ColorHelper.mainColor,
-                      height: _heightScreen * 0.065,
+                      height: _heightScreen * 0.072,
+                      //height: _heightScreen * 0.065,
                     ),
                   ],
                 ),

@@ -4,10 +4,10 @@ import 'features/features_exports.dart';
 void main() {
   runApp(const MyApp());
 
-  /*runApp(DevicePreview(
-    enabled: true,
-    builder: (context) => MyApp(), // Wrap your app
-  ),);*/
+  // runApp(DevicePreview(
+  //   enabled: true,
+  //   builder: (context) => MyApp(), // Wrap your app
+  // ),);
 }
 
 class MyApp extends StatelessWidget {
@@ -18,10 +18,15 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => UserCubit(),),
+        BlocProvider(create: (context) => GetDoctorInfoCubit(),),
+        BlocProvider(create: (context) => EditNameCubit(),),
+        BlocProvider(create: (context) => EditPhoneCubit(),),
+        BlocProvider(create: (context) => EditSpecialtyCubit(),),
+
       ],
       child: MaterialApp(
-        /*locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,*/
+        locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.light(
