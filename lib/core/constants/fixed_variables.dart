@@ -25,5 +25,7 @@ class FixedVariables {
   static double  heightScreenQuery (BuildContext context ) => MediaQuery.of(context).size.height;
   static double  widthScreenQuery (BuildContext context ) => MediaQuery.of(context).size.width;
 
+  static double  horizontalPaddingScreen (BuildContext context ) => MediaQuery.of(context).size.width*0.05;
+
 
 }

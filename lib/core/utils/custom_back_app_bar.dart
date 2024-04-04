@@ -4,8 +4,8 @@ import 'package:health_care/features/features_exports.dart';
 class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomBackAppBar({
     super.key,
-    required this.title,
     required this.context,
+    required this.title,
     this.centerTitle ,
     this.hasArrowBack = true,
     this.backgroundColor,
@@ -27,6 +27,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
     final double _heightScreen = MediaQuery.of(context).size.height;
     final double _widthScreen = MediaQuery.of(context).size.width;
     return AppBar(
+      scrolledUnderElevation: 0,
       title: Padding(
         padding: EdgeInsets.only(top: _heightScreen * 0.02),
         child: Text(

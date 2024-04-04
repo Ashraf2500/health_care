@@ -9,7 +9,7 @@ class StringsRouting {
   static const verifyOtp= "/verifyOtp";
   static const changePassword= "/changePassword";
   static const mainScreen= "/mainScreen";
-  static const doctorsDepartments= "/doctorsDepartments";
+  static const doctorsDepartments= "/departments";
   static const bookAppointmentTime= "/bookAppointmentTime";
   static const bookAppointmentInfo= "/bookAppointmentInfo";
   static const doctorInfo= "/doctorInfo";

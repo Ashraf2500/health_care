@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/core/constants/constants_exports.dart';
-import 'package:health_care/features/authentication/auth/presentation/manager/user_cubit/user_cubit.dart';
 import 'package:health_care/features/features_exports.dart';
 
 class CustomCategoryItem extends StatelessWidget {

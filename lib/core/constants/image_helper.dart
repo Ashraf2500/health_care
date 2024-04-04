@@ -36,6 +36,12 @@ class ImageHelper {
   static const shareIcon  = "$_svgIcon/share_icon.svg";
   static const signOutIcon  = "$_svgIcon/signout_icon.svg";
 
+  static const all_department  = "$_svgIcon/fill_icons/all_department.svg";
+  static const dentists_department  = "$_svgIcon/fill_icons/dentist_department.svg";
+  static const heart_department  = "$_svgIcon/fill_icons/heart_department.svg";
+  static const bones_department  = "$_svgIcon/fill_icons/bones_department.svg";
+
+
   static const personFillIcon  = "$_svgIcon/fill_icons/person_fill_icon.svg";
   static const historyFillIcon  = "$_svgIcon/fill_icons/history_fill_icon.svg";
   static const scheduleFillIcon  = "$_svgIcon/fill_icons/calendar_fill_icon.svg";

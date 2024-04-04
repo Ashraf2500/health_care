@@ -4,3 +4,5 @@ export 'custom_popular_doctor_item.dart';
 export 'custom_sliver_appbar.dart';
 export 'custom_view_popular_doctors.dart';
 export 'custom_patients_today_appointments.dart';
+export 'custom_doctors_departments.dart';
+export 'custom_doctor_department_item.dart';

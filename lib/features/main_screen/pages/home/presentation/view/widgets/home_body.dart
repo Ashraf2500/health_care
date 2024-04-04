@@ -38,8 +38,13 @@ class HomeBody extends StatelessWidget {
                   return Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: _widthScreen * 0.025),
-                    child: CustomCategoryItem(
-                      index: index,
+                    child: GestureDetector(
+                      onTap: (){
+                        RoutingHelper.navToDoctorsDepartments(context);
+                      },
+                      child: CustomCategoryItem(
+                        index: index,
+                      ),
                     ),
                   );
                 }),

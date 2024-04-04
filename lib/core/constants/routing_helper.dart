@@ -44,9 +44,6 @@ class RoutingHelper {
       case StringsRouting.changePassword:
         return _PageRouting.page(settings, ChangePasswordView());
 
-      case StringsRouting.doctorsDepartments:
-        return _PageRouting.page(settings, OnboardingView());
-
       case StringsRouting.mainScreen:
         return _PageRouting.page(settings, MainScreenView());
 
@@ -61,6 +58,9 @@ class RoutingHelper {
 
       case StringsRouting.profileGeneralInfo:
         return _PageRouting.page(settings, CustomGeneralInfo());
+
+      case StringsRouting.doctorsDepartments:
+        return _PageRouting.page(settings, CustomDoctorsDepartments());
 
 
       default:
@@ -117,6 +117,10 @@ class RoutingHelper {
 
   static void navToProfileGeneralInfo(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.profileGeneralInfo);
+  }
+
+  static void navToDoctorsDepartments(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.doctorsDepartments);
   }
 
 }
