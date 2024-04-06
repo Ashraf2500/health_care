@@ -51,7 +51,7 @@ class RoutingHelper {
         return _PageRouting.page(settings, DoctorInfoView());
 
       case StringsRouting.bookAppointmentTime:
-        return _PageRouting.page(settings, OnboardingView());
+        return _PageRouting.page(settings, BookAppointmentTime());
 
       case StringsRouting.bookAppointmentInfo:
         return _PageRouting.page(settings, OnboardingView());
@@ -121,6 +121,9 @@ class RoutingHelper {
 
   static void navToDoctorsDepartments(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.doctorsDepartments);
+  }
+  static void navToBookAppointmentTime(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.bookAppointmentTime);
   }
 
 }

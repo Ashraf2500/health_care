@@ -139,7 +139,7 @@ class DoctorInfoBody extends StatelessWidget {
                       height: _heightScreen * 0.05,
                     ),
                     Text(
-                      "Evalute doctor",
+                      "Evaluate doctor",
                       style: TextStyleHelper.style18B
                           .copyWith(color: ColorHelper.mainColor),
                       overflow: TextOverflow.ellipsis,
@@ -167,7 +167,9 @@ class DoctorInfoBody extends StatelessWidget {
                     ),
                     Spacer(),
                     CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        RoutingHelper.navToBookAppointmentTime(context);
+                      },
                       text: "Book Now",
                     ),
                   ],

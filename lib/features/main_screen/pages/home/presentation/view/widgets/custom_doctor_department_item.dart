@@ -118,7 +118,9 @@ class CustomDoctorDepartmentItem extends StatelessWidget {
                 ),
                 Spacer(),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    RoutingHelper.navToBookAppointmentTime(context);
+                  },
                   text: "Book Now",
                   textStyle: TextStyleHelper.style12B.copyWith(color: ColorHelper.whiteColor),
                   widthButton: FixedVariables.widthScreenQuery(context)*0.32,

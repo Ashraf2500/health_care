@@ -7,5 +7,6 @@ export 'package:device_preview/device_preview.dart';
 export 'package:animated_text_kit/animated_text_kit.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:flutter_rating_bar/flutter_rating_bar.dart';
+export 'package:table_calendar/table_calendar.dart';
 
 
