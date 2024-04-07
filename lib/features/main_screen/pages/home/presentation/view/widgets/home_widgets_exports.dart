@@ -8,3 +8,4 @@ export 'custom_doctors_departments.dart';
 export 'custom_doctor_department_item.dart';
 export 'book_appointment_time.dart';
 export 'custom_calendar_date.dart';
+export 'book_appointment_info.dart';

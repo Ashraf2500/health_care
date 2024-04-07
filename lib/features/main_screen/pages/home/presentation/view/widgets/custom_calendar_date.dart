@@ -12,13 +12,14 @@ class _CustomCalendarDateState extends State<CustomCalendarDate> {
 
   DateTime _selectedDay = DateTime.now();
   DateTime _focusedDay = DateTime.now();
-  CalendarFormat _calendarFormat = CalendarFormat.twoWeeks;
+  CalendarFormat _calendarFormat = CalendarFormat.month;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: Container(
         decoration: BoxDecoration(
+          //color: Color(0x0A000000),
           color: ColorHelper.whiteColor,
           // border: Border.all(color: ColorHelper.blackColor.withOpacity(0.2)),
           borderRadius: BorderRadius.circular(FixedVariables.radius12),

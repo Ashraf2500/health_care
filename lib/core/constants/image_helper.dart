@@ -57,6 +57,10 @@ class ImageHelper {
   static const calenderIcon  = "$_Icon/calender_icon.png";
 
 
+  //-------------------------------------------------------------------
+
+  static const chest_image  = "assets/images/png_images/chest.jpg";
+  //-------------------------------------------------------------------
 
   static const doctor_1  = "$_doctors/doctor_1.png";
   static const doctor_2  = "$_doctors/doctor_2.png";

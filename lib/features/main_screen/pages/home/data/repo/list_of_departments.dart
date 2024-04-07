@@ -18,5 +18,12 @@ class ListOfDepartments {
     DepartmentModel(
       image: ImageHelper.bones_department,
     ),
+    DepartmentModel(
+      image: ImageHelper.heart_department,
+    ),
+
+    DepartmentModel(
+      image: ImageHelper.bones_department,
+    ),
   ];
 }

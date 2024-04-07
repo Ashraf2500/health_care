@@ -8,6 +8,7 @@ class DoctorInfoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: CustomBackAppBar(context: context,title: "Doctor Details",),
       body: DoctorInfoBody(),
     );

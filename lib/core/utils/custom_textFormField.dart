@@ -7,8 +7,10 @@ import '../../features/features_exports.dart';
 class CustomTextFormField extends StatelessWidget {
    CustomTextFormField({
     Key? key,
-     required this.hintText,
+     this.hintText,
      this.hintStyle,
+     this.labelText,
+     this.labelStyle,
      this.textStyle,
      this.heightFilled,
      this.widthFilled,
@@ -28,17 +30,21 @@ class CustomTextFormField extends StatelessWidget {
      this.controller,
      this.validation,
      this.maxLength,
+     this.maxLines,
      this.inputFormatters,
      this.marginHorizontalSides,
      this.marginVerticalSides,
      this.marginAllSides,
      this.onSubmitted,
 
+
   }) : super(key: key);
 
-  final String hintText ;
-  final TextStyle? hintStyle ;
-  final TextStyle? textStyle ;
+   final String? hintText ;
+   final TextStyle? hintStyle ;
+   final String? labelText ;
+   final TextStyle? labelStyle ;
+   final TextStyle? textStyle ;
    final Color? borderColor ;
    final Color? focusBorderColor ;
    final bool? enableFilled ;
@@ -55,6 +61,7 @@ class CustomTextFormField extends StatelessWidget {
    final double? heightFilled ;
    final double? widthFilled;
    final int? maxLength;
+   final int? maxLines;
    final TextEditingController? controller;
    final List<TextInputFormatter>? inputFormatters;
    final double? marginAllSides ;
@@ -77,6 +84,8 @@ class CustomTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: hintStyle,
+          labelText:labelText,
+          labelStyle: labelStyle??TextStyleHelper.style12B.copyWith(color:ColorHelper.mainColor),
           filled: enableFilled ?? true,
           fillColor:backgroundFilled?? Color(0x0A000000),
           prefixIcon: Padding(
@@ -125,6 +134,7 @@ class CustomTextFormField extends StatelessWidget {
         autofocus:autofocus ?? false,
         inputFormatters: inputFormatters,
         maxLength: maxLength,
+        maxLines: maxLines??1,
 
       ),
     );
