@@ -22,7 +22,7 @@ class HomeBody extends StatelessWidget {
           ),
           Text(
             "Categories",
-            style: TextStyleHelper.style14M,
+            style: TextStyleHelper.style14B,
           ),
           SizedBox(
             height: _heightScreen * 0.02,
@@ -31,16 +31,20 @@ class HomeBody extends StatelessWidget {
             height: _heightScreen * 0.11,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: (listOfCategories.length > 10)
-                    ? 10
-                    : listOfCategories.length,
+                itemCount: (_userType ==UserType.patient)
+                    ?AllCategories[StringsApp.patientUser]!.length
+                    :(_userType ==UserType.doctor)
+                    ?AllCategories[StringsApp.doctorUser]!.length
+                    :AllCategories[StringsApp.adminUser]!.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: _widthScreen * 0.025),
                     child: GestureDetector(
                       onTap: (){
-                        RoutingHelper.navToDoctorsDepartments(context);
+                        (index==0)
+                            ?RoutingHelper.navToDoctorsDepartments(context)
+                            :RoutingHelper.navToHistoryAppointments(context);
                       },
                       child: CustomCategoryItem(
                         index: index,

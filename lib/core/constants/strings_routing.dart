@@ -13,5 +13,6 @@ class StringsRouting {
   static const bookAppointmentTime= "/bookAppointmentTime";
   static const bookAppointmentInfo= "/bookAppointmentInfo";
   static const doctorInfo= "/doctorInfo";
+  static const historyAppointments= "/historyAppointments";
   static const profileGeneralInfo= "/profileGeneralInfo";
 }

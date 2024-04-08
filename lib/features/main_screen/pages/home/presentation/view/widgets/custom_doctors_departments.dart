@@ -62,7 +62,7 @@ class CustomDoctorsDepartments extends StatelessWidget {
               height: FixedVariables.heightScreenQuery(context)*0.02,
             ),
             Text(
-              "Doctors",
+              "All Doctors",
               style: TextStyleHelper.style14B,
             ),
             SizedBox(

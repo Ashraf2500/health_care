@@ -62,6 +62,9 @@ class RoutingHelper {
       case StringsRouting.doctorsDepartments:
         return _PageRouting.page(settings, CustomDoctorsDepartments());
 
+      case StringsRouting.historyAppointments:
+        return _PageRouting.page(settings, HistoryAppointments());
+
 
       default:
         return _PageRouting.page(settings, SplashView());
@@ -127,6 +130,9 @@ class RoutingHelper {
   }
   static void navToBookAppointmentInfo(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.bookAppointmentInfo);
+  }
+  static void navToHistoryAppointments(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.historyAppointments);
   }
 
 }

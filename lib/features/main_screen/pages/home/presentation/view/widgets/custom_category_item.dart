@@ -27,14 +27,22 @@ class CustomCategoryItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              listOfCategories[index].image,
+              (_userType == UserType.patient)
+                  ? AllCategories[StringsApp.patientUser]![index].image
+                  :(_userType == UserType.doctor)
+                  ?AllCategories[StringsApp.doctorUser]![index].image
+                  : AllCategories[StringsApp.adminUser]![index].image,
               height: _heightScreen*0.05,
             ),
             SizedBox(
               height: _heightScreen*0.01,
             ),
             Text(
-              listOfCategories[index].label,
+              (_userType == UserType.patient)
+                  ? AllCategories[StringsApp.patientUser]![index].label
+                  :(_userType == UserType.doctor)
+                  ?AllCategories[StringsApp.doctorUser]![index].label
+                  : AllCategories[StringsApp.adminUser]![index].label,
               style: TextStyleHelper.style10B.copyWith(color: ColorHelper.mainColor),
             ),
           ],

@@ -22,7 +22,7 @@ class CustomViewPopularDoctors extends StatelessWidget {
                   children: [
                     Text(
                       "Popular Doctors",
-                      style: TextStyleHelper.style14M,
+                      style: TextStyleHelper.style14B,
                     ),
                     GestureDetector(
                       onTap: () {

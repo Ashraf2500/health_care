@@ -16,7 +16,7 @@ class CustomPatientsTodayAppointments extends StatelessWidget {
       children: [
         Text(
           "Today's Appointments",
-          style: TextStyleHelper.style14M,
+          style: TextStyleHelper.style14B,
         ),
         SizedBox(
           height: _heightScreen*0.02,

@@ -1,49 +1,78 @@
-import 'dart:ui';
-
 import 'package:health_care/features/features_exports.dart';
 
-List<Category> listOfCategories = [
-  Category(
+Map<String,List<Category>>AllCategories = {
+  StringsApp.patientUser :[
+    Category(
       label: "Doctors",
       image: ImageHelper.doctorsIcon,
-      userIsPatient: true,
-      userIsDoctor: false,
-      userIsAdmin: true,
-  ),
-  Category(
+    ),
+    Category(
       label: "History",
       image: ImageHelper.historyIcon,
-      userIsPatient: true,
-      userIsDoctor: true,
-      userIsAdmin: false
-  ),
-  Category(
-      label: "Chatbot",
+    ),
+    Category(
+      label: "Chat-bot",
       image: ImageHelper.chatBotIcon,
-      userIsPatient: true,
-      userIsDoctor: true,
-      userIsAdmin: false
-  ),
-  Category(
+    ),
+    Category(
       label: "Test X-ray",
       image: ImageHelper.testXRayIcon,
-      userIsPatient: false,
-      userIsDoctor: true,
-      userIsAdmin: false
-  ),
-  Category(
+    ),
+  ],
+  StringsApp.doctorUser :[
+    Category(
+      label: "History",
+      image: ImageHelper.historyIcon,
+    ),
+    Category(
+      label: "Chat-bot",
+      image: ImageHelper.chatBotIcon,
+    ),
+    Category(
+      label: "Test X-ray",
+      image: ImageHelper.testXRayIcon,
+    ),
+  ],
+  StringsApp.adminUser :[
+    Category(
+      label: "Doctors",
+      image: ImageHelper.doctorsIcon,
+    ),
+    Category(
       label: "Patients",
       image: ImageHelper.patientsIcon,
-      userIsPatient: false,
-      userIsDoctor: false,
-      userIsAdmin: true,
-  ),
-  Category(
+    ),
+    Category(
       label: "Add Doctor",
       image: ImageHelper.doctorIcon,
-      userIsPatient: false,
-      userIsDoctor: false,
-      userIsAdmin: true,
-  ),
+    ),
+  ],
+};
 
-];
+// List<Category> listOfCategories = [
+//   Category(
+//       label: "Doctors",
+//       image: ImageHelper.doctorsIcon,
+//   ),
+//   Category(
+//       label: "History",
+//       image: ImageHelper.historyIcon,
+//   ),
+//   Category(
+//       label: "Chat-bot",
+//       image: ImageHelper.chatBotIcon,
+//   ),
+//   Category(
+//       label: "Test X-ray",
+//       image: ImageHelper.testXRayIcon,
+//   ),
+//   Category(
+//       label: "Patients",
+//       image: ImageHelper.patientsIcon,
+//   ),
+//   Category(
+//       label: "Add Doctor",
+//       image: ImageHelper.doctorIcon,
+//   ),
+//
+// ];

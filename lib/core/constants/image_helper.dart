@@ -55,6 +55,7 @@ class ImageHelper {
   //-------------------------------------------------------------------
   static const chatIcon  = "$_Icon/chat_icon.png";
   static const calenderIcon  = "$_Icon/calender_icon.png";
+  static const calenderIcon2  = "$_Icon/calendar_2.png";
 
 
   //-------------------------------------------------------------------
