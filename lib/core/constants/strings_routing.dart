@@ -14,5 +14,9 @@ class StringsRouting {
   static const bookAppointmentInfo= "/bookAppointmentInfo";
   static const doctorInfo= "/doctorInfo";
   static const historyAppointments= "/historyAppointments";
+  static const chatBot= "/chatBot";
   static const profileGeneralInfo= "/profileGeneralInfo";
+  static const notifications= "/notifications";
+  static const report= "/report";
+  static const reportDetails= "/reportDetails";
 }

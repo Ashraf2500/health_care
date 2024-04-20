@@ -3,12 +3,12 @@ import 'package:health_care/features/features_exports.dart';
 Map<String,List<Category>>AllCategories = {
   StringsApp.patientUser :[
     Category(
-      label: "Doctors",
-      image: ImageHelper.doctorsIcon,
-    ),
-    Category(
       label: "History",
       image: ImageHelper.historyIcon,
+    ),
+    Category(
+      label: "Doctors",
+      image: ImageHelper.doctorsIcon,
     ),
     Category(
       label: "Chat-bot",
@@ -19,6 +19,8 @@ Map<String,List<Category>>AllCategories = {
       image: ImageHelper.testXRayIcon,
     ),
   ],
+
+  //---------------------------------------
   StringsApp.doctorUser :[
     Category(
       label: "History",
@@ -33,6 +35,8 @@ Map<String,List<Category>>AllCategories = {
       image: ImageHelper.testXRayIcon,
     ),
   ],
+
+  //----------------------------------------
   StringsApp.adminUser :[
     Category(
       label: "Doctors",

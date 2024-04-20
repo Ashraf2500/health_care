@@ -10,6 +10,12 @@ class HistoryAppointments extends StatelessWidget {
       appBar: CustomBackAppBar(
         context: context,
         title: "History",
+        titleColor: ColorHelper.whiteColor,
+        backgroundColor: ColorHelper.mainColor,
+        arrowColor: ColorHelper.whiteColor,
+        elevation: 3.5,
+        shadowColor: ColorHelper.mainColor,
+        appBarHeight: FixedVariables.heightScreenQuery(context) * 0.07,
       ),
       body: Column(
         children: [
@@ -53,28 +59,52 @@ class HistoryAppointments extends StatelessWidget {
           //   ),
           //
           // ),
-          Container(
-            height: FixedVariables.heightScreenQuery(context) * 0.9,
-            padding: EdgeInsets.symmetric(
-                horizontal: FixedVariables.widthScreenQuery(context) * 0.04, vertical: FixedVariables.heightScreenQuery(context) * 0.01),
-            child: ListView.builder(
-                itemCount: todayAppointmentsPatients.length,
-                padding: EdgeInsets.only(top: FixedVariables.heightScreenQuery(context)*0.02),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:  EdgeInsets.only(bottom: FixedVariables.heightScreenQuery(context)*0.006),
-                    child: CustomAppointmentItem(
-                      index: index,
-                      listOfItems: availableAppointmentsDoctors,
-                      showSpecialist: true,
-                      withDetails: false,
-                      withCancel: false,
-                      colorRowDateTime: ColorHelper.mainShadow.withOpacity(0.1),
-                      specialistColor: ColorHelper.mainColor,
-
-                    ),
-                  );
-                }),
+          Flexible(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: FixedVariables.heightScreenQuery(context) * 0.01),
+              child: ListView.builder(
+                  itemCount: todayAppointmentsPatients.length,
+                  padding: EdgeInsets.only(
+                      top: FixedVariables.heightScreenQuery(context) * 0.02),
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: FixedVariables.widthScreenQuery(context) * 0.04,
+                      ).copyWith(bottom: FixedVariables.heightScreenQuery(context) * 0.015),
+                      child: GestureDetector(
+                        onTap: (){
+                          RoutingHelper.navToReport(context);
+                        },
+                        child: CustomAppointmentItem(
+                          index: index,
+                          listOfItems: availableAppointmentsDoctors,
+                          showSubtitle: true,
+                          withDetails: false,
+                          withCancel: false,
+                          gradient:  LinearGradient(
+                            colors: [
+                              ColorHelper.gray100,
+                              ColorHelper.whiteColor,
+                              ColorHelper.whiteColor,
+                            ],
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft,
+                          ),
+                          listOfShadow: [
+                            BoxShadow(
+                              color: ColorHelper.gray200,
+                              blurRadius: 4,
+                              spreadRadius: 1,
+                              offset: Offset(2, 1.5),
+                            ),
+                          ],
+                          SubtitleColor: ColorHelper.mainColor,
+                        ),
+                      ),
+                    );
+                  }),
+            ),
           ),
         ],
       ),

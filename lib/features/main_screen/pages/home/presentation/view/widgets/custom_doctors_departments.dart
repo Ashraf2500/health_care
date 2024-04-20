@@ -10,8 +10,13 @@ class CustomDoctorsDepartments extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: CustomBackAppBar(
         context: context,
-        backgroundColor: ColorHelper.backWhiteColor,
         title: "Doctors",
+        titleColor: ColorHelper.whiteColor,
+        backgroundColor: ColorHelper.mainColor,
+        arrowColor: ColorHelper.whiteColor,
+        elevation: 4,
+        shadowColor: ColorHelper.mainColor,
+        appBarHeight: FixedVariables.heightScreenQuery(context) * 0.07,
       ),
       backgroundColor: ColorHelper.backWhiteColor,
       body: Container(

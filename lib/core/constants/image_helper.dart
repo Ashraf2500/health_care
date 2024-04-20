@@ -23,6 +23,16 @@ class ImageHelper {
 
   static const historyIcon  = "$_svgIcon/history.svg";
   static const chatBotIcon  = "$_svgIcon/chatBot.svg";
+  static const messageBot  = "$_svgIcon/messageBot.svg";
+  static const messageBot1  = "$_svgIcon/messageBot1.svg";
+  static const messageBot2  = "$_svgIcon/messageBot2.svg";
+  static const messageBot3  = "$_svgIcon/messageBot3.svg";
+  static const messageBot4  = "$_svgIcon/messageBot4.svg";
+  static const messageBot5  = "$_svgIcon/messageBot5.svg";
+  static const messageBot6  = "$_svgIcon/messageBot6.svg";
+  static const messageBot7  = "$_svgIcon/messageBot7.svg";
+  static const messageBot8  = "$_svgIcon/messageBot8.svg";
+
   static const doctorIcon  = "$_svgIcon/doctor.svg";
   static const doctorsIcon  = "$_svgIcon/doctors.svg";
   static const patientsIcon  = "$_svgIcon/patients.svg";
@@ -35,6 +45,7 @@ class ImageHelper {
   static const rateIcon  = "$_svgIcon/rate_icon.svg";
   static const shareIcon  = "$_svgIcon/share_icon.svg";
   static const signOutIcon  = "$_svgIcon/signout_icon.svg";
+  static const sendMessage  = "$_svgIcon/send_message.svg";
 
   static const all_department  = "$_svgIcon/fill_icons/all_department.svg";
   static const dentists_department  = "$_svgIcon/fill_icons/dentist_department.svg";

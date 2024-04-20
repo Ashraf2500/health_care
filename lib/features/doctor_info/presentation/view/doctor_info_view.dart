@@ -9,7 +9,16 @@ class DoctorInfoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomBackAppBar(context: context,title: "Doctor Details",),
+      appBar: CustomBackAppBar(
+        context: context,
+        title: "Doctor Details",
+        titleColor: ColorHelper.whiteColor,
+        backgroundColor: ColorHelper.mainColor,
+        arrowColor: ColorHelper.whiteColor,
+        elevation: 3.5,
+        shadowColor: ColorHelper.mainColor,
+        appBarHeight: FixedVariables.heightScreenQuery(context) * 0.07,
+      ),
       body: DoctorInfoBody(),
     );
   }

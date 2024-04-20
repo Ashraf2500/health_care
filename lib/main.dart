@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'features/features_exports.dart';
-
-void main() {
+import 'package:flutter_langdetect/flutter_langdetect.dart' as langdetect;
+void main() async{
   runApp(const MyApp());
 
+  await langdetect.initLangDetect();
   // runApp(DevicePreview(
   //   enabled: true,
   //   builder: (context) => MyApp(), // Wrap your app
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => EditNameCubit(),),
         BlocProvider(create: (context) => EditPhoneCubit(),),
         BlocProvider(create: (context) => EditSpecialtyCubit(),),
+        //BlocProvider(create: (context) => ChatBotCubit(),),
+        BlocProvider(create: (context) => ReportDetailsCubit(),),
 
       ],
       child: MaterialApp(

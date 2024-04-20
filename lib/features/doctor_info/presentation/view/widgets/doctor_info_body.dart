@@ -28,6 +28,14 @@ class DoctorInfoBody extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: ColorHelper.whiteColor,
                   borderRadius: BorderRadius.circular(FixedVariables.radius12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: ColorHelper.gray200,
+                        blurRadius: 4,
+                        spreadRadius: 1,
+                        offset: Offset(2, 2),
+                      ),
+                    ]
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

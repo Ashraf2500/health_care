@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:health_care/features/features_exports.dart';
 
 class HomeBody extends StatelessWidget {
-   HomeBody({Key? key}) : super(key: key);
+  HomeBody({Key? key}) : super(key: key);
 
   UserType? _userType;
 
 
   @override
   Widget build(BuildContext context) {
-    final double _heightScreen = MediaQuery.of(context).size.height;
-    final double _widthScreen = MediaQuery.of(context).size.width;
-    _userType = context.read<UserCubit>().userType;
+    final double _heightScreen = MediaQuery
+        .of(context)
+        .size
+        .height;
+    final double _widthScreen = MediaQuery
+        .of(context)
+        .size
+        .width;
+    _userType = context
+        .read<UserCubit>()
+        .userType;
     return Padding(
       padding: EdgeInsets.only(left: FixedVariables.ScreenPadding22),
       child: Column(
@@ -31,20 +39,41 @@ class HomeBody extends StatelessWidget {
             height: _heightScreen * 0.11,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: (_userType ==UserType.patient)
-                    ?AllCategories[StringsApp.patientUser]!.length
-                    :(_userType ==UserType.doctor)
-                    ?AllCategories[StringsApp.doctorUser]!.length
-                    :AllCategories[StringsApp.adminUser]!.length,
+                itemCount: (_userType == UserType.patient)
+                    ? AllCategories[StringsApp.patientUser]!.length
+                    : (_userType == UserType.doctor)
+                    ? AllCategories[StringsApp.doctorUser]!.length
+                    : AllCategories[StringsApp.adminUser]!.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: _widthScreen * 0.025),
+                    EdgeInsets.symmetric(horizontal: _widthScreen * 0.025),
                     child: GestureDetector(
-                      onTap: (){
-                        (index==0)
-                            ?RoutingHelper.navToDoctorsDepartments(context)
-                            :RoutingHelper.navToHistoryAppointments(context);
+                      onTap: () {
+                        if (_userType == UserType.patient) {
+                          if (index == 0) {
+                            RoutingHelper.navToHistoryAppointments(context);
+                          }
+                          else if (index == 1) {
+                            RoutingHelper.navToDoctorsDepartments(context);
+                          }
+                          else if (index == 2) {
+                            RoutingHelper.navToChatBot(context);
+                          }
+                        }
+                        else if (_userType == UserType.doctor) {
+                          if (index == 0) {
+                            RoutingHelper.navToHistoryAppointments(context);
+                          }
+                          else if (index == 1) {
+                            RoutingHelper.navToChatBot(context);
+                          }
+                        }
+                        if (_userType == UserType.admin) {
+                          if (index == 0) {
+                            RoutingHelper.navToDoctorsDepartments(context);
+                          }
+                        }
                       },
                       child: CustomCategoryItem(
                         index: index,
@@ -56,13 +85,13 @@ class HomeBody extends StatelessWidget {
           SizedBox(
             height: _heightScreen * 0.04,
           ),
-          (_userType ==UserType.patient)
-              ?CustomViewPopularDoctors()
-              :(_userType ==UserType.doctor)
-              ?CustomPatientsTodayAppointments()
-              :(_userType ==UserType.admin)
-              ?CustomPatientsTodayAppointments()
-              :CustomViewPopularDoctors(),
+          (_userType == UserType.patient)
+              ? CustomViewPopularDoctors()
+              : (_userType == UserType.doctor)
+              ? CustomPatientsTodayAppointments()
+              : (_userType == UserType.admin)
+              ? CustomPatientsTodayAppointments()
+              : CustomViewPopularDoctors(),
 
         ],
       ),

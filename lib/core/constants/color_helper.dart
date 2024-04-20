@@ -30,6 +30,8 @@ class ColorHelper {
   static const backgroundSearchBar = Color(0xffecf8f8);
 
   static Color gray300 = Colors.grey.shade300;
+  static Color gray200 = Colors.grey.shade200;
+  static Color gray100 = Colors.grey.shade100;
 
   static const onboardingLinearGradient = LinearGradient(
     colors: [
@@ -45,7 +47,17 @@ class ColorHelper {
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
 
+  );
 
+  final shadowLinearGradient = LinearGradient(
+    colors: [
+      ColorHelper.gray200,
+      ColorHelper.gray100,
+      ColorHelper.whiteColor,
+      ColorHelper.whiteColor,
+      ColorHelper.whiteColor,
+
+    ],
   );
 
 

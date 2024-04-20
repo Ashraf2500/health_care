@@ -73,14 +73,15 @@ class CustomSliverAppBar extends StatelessWidget {
               ),
             ),
             actions: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: _heightScreen * 0.02,
-                    horizontal: _widthScreen * 0.04),
-                child: GestureDetector(
-                  onTap: (){
-                    RoutingHelper.navToUserType(context);
-                  },
+              GestureDetector(
+                onTap: (){
+                  RoutingHelper.navToNotifications(context);
+                },
+                child: Container(
+                  color: Colors.transparent,
+                  padding: EdgeInsets.symmetric(
+                      vertical: _heightScreen * 0.02,
+                      horizontal: _widthScreen * 0.04),
                   child: Icon(
                     Icons.notifications_none,
                     color: ColorHelper.whiteColor,

@@ -1,1 +1,1 @@
-export 'chat_view.dart';
+export 'presentation/chat_presentation_exports.dart';

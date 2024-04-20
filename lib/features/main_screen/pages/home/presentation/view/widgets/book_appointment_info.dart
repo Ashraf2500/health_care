@@ -10,7 +10,13 @@ class BookAppointmentInfo extends StatelessWidget {
       //resizeToAvoidBottomInset: false,
       appBar: CustomBackAppBar(
         context: context,
-        title: "Book an Appointment",
+        title: "Book Appointment",
+        titleColor: ColorHelper.whiteColor,
+        backgroundColor: ColorHelper.mainColor,
+        arrowColor: ColorHelper.whiteColor,
+        elevation: 4,
+        shadowColor: ColorHelper.mainColor,
+        appBarHeight: FixedVariables.heightScreenQuery(context) * 0.07,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -135,8 +141,8 @@ class BookAppointmentInfo extends StatelessWidget {
                 padding:  EdgeInsets.only(
                   left: FixedVariables.widthScreenQuery(context)*0.02,
                   right: FixedVariables.widthScreenQuery(context)*0.02,
-                  top: FixedVariables.heightScreenQuery(context) * 0.04,
-                  bottom: FixedVariables.heightScreenQuery(context) * 0.02,
+                  top: FixedVariables.heightScreenQuery(context) * 0.02,
+                  bottom: FixedVariables.heightScreenQuery(context) * 0.04,
                 ),
                 child: CustomButton(
                   onPressed: (){

@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.health_care_project_app_grad2024.health_care"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {

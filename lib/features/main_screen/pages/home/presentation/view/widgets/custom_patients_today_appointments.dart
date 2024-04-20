@@ -31,14 +31,24 @@ class CustomPatientsTodayAppointments extends StatelessWidget {
             itemBuilder: (context ,index){
               return  Padding(
                 padding:  EdgeInsets.only( bottom: _heightScreen*0.01),
-                child: CustomAppointmentItem(
-                  index: index,
-                 withOptions: true,
-                  showPhone: (_userType==UserType.admin)?false:true,
-                  showSpecialist: (_userType==UserType.admin)?true:false,
+                child: Container(
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorHelper.gray200,
+                          blurRadius: 4,
+                          spreadRadius: 1,
+                          offset: Offset(1.5, 1.5),
+                        ),
+                      ]
+                  ),
+                  child: CustomAppointmentItem(
+                    index: index,
+                    showPhone: (_userType==UserType.admin)?false:true,
+                    showSubtitle: (_userType==UserType.admin)?true:false,
+                    listOfItems:(_userType==UserType.doctor)?todayAppointmentsPatients:availableAppointmentsDoctors,
 
-                  listOfItems:(_userType==UserType.doctor)?todayAppointmentsPatients:availableAppointmentsDoctors,
-
+                  ),
                 ),
               );
             },

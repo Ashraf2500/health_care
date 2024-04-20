@@ -27,7 +27,7 @@ class CustomBackgroundImage extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       ImageHelper.rectangleSvg1,
-                      color: ColorHelper.mainShadow,
+                      colorFilter: ColorFilter.mode(ColorHelper.mainShadow, BlendMode.srcIn),
                       width: _widthScreen * 0.484,
                       height: _heightScreen * 0.143,
                       // width: _widthScreen * 0.484,
@@ -35,7 +35,7 @@ class CustomBackgroundImage extends StatelessWidget {
                     ),
                     SvgPicture.asset(
                       ImageHelper.rectangleSvg1,
-                      color: ColorHelper.mainColor,
+                      colorFilter: ColorFilter.mode(ColorHelper.mainColor, BlendMode.srcIn),
                       height: _heightScreen * 0.134, //114
                       //height: _heightScreen * 0.134, //114
                     ),
@@ -51,7 +51,7 @@ class CustomBackgroundImage extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       ImageHelper.rectangleSvg2,
-                      color: ColorHelper.mainShadow,
+                      colorFilter: ColorFilter.mode(ColorHelper.mainShadow, BlendMode.srcIn),
                       width: _widthScreen * 0.339,
                       height: _heightScreen * 0.076,
                       // width: _widthScreen * 0.339,
@@ -59,7 +59,7 @@ class CustomBackgroundImage extends StatelessWidget {
                     ),
                     SvgPicture.asset(
                       ImageHelper.rectangleSvg2,
-                      color: ColorHelper.mainColor,
+                      colorFilter: ColorFilter.mode(ColorHelper.mainColor, BlendMode.srcIn),
                       height: _heightScreen * 0.072,
                       //height: _heightScreen * 0.065,
                     ),

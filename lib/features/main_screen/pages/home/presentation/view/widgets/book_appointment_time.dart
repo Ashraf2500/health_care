@@ -10,7 +10,13 @@ class BookAppointmentTime extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: CustomBackAppBar(
         context: context,
-        title: "Book an Appointment",
+        title: "Book Appointment",
+        titleColor: ColorHelper.whiteColor,
+        backgroundColor: ColorHelper.mainColor,
+        arrowColor: ColorHelper.whiteColor,
+        elevation: 4,
+        shadowColor: ColorHelper.mainColor,
+        appBarHeight: FixedVariables.heightScreenQuery(context) * 0.07,
       ),
       body: Container(
         height: FixedVariables.heightScreenQuery(context),

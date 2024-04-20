@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_care/features/features_exports.dart';
 
 class _PageRouting {
-
-  static Route<dynamic> page (RouteSettings settings , Widget page){
+  static Route<dynamic> page(RouteSettings settings, Widget page) {
     return PageTransition(
       child: page,
       type: PageTransitionType.fade,
@@ -13,8 +12,8 @@ class _PageRouting {
     );
   }
 }
-class RoutingHelper {
 
+class RoutingHelper {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case StringsRouting.splash:
@@ -65,10 +64,31 @@ class RoutingHelper {
       case StringsRouting.historyAppointments:
         return _PageRouting.page(settings, HistoryAppointments());
 
+      case StringsRouting.chatBot:
+        return _PageRouting.page(
+            settings,
+            BlocProvider(
+              create: (context) => ChatBotCubit(),
+              child: ChatBot(),
+            ));
+
+      case StringsRouting.notifications:
+        return _PageRouting.page(settings, Notifications());
+
+      case StringsRouting.report:
+        return _PageRouting.page(
+            settings,
+            BlocProvider(
+              create: (context) => ReportDetailsCubit(),
+              child: CustomReport(),
+            ));
+
+      // case StringsRouting.reportDetails:
+      //   return _PageRouting.page(settings, ReportDetailsByAi()); //todo
 
       default:
         return _PageRouting.page(settings, SplashView());
-        //return MaterialPageRoute(builder: (_) => SplashView());
+      //return MaterialPageRoute(builder: (_) => SplashView());
     }
   }
 
@@ -77,11 +97,19 @@ class RoutingHelper {
   }
 
   static void navToOnboarding(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, StringsRouting.onboarding,(route) => false,);
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      StringsRouting.onboarding,
+      (route) => false,
+    );
   }
 
   static void navToUserType(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, StringsRouting.userType,(route) => false,);
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      StringsRouting.userType,
+      (route) => false,
+    );
   }
 
   static void navToAuthType(BuildContext context) {
@@ -107,13 +135,19 @@ class RoutingHelper {
   static void navToVerificationOtp(BuildContext context) {
     Navigator.pushReplacementNamed(context, StringsRouting.verifyOtp);
   }
+
   static void navToChangePassword(BuildContext context) {
     Navigator.pushReplacementNamed(context, StringsRouting.changePassword);
   }
 
   static void navToMainScreen(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, StringsRouting.mainScreen,(route) => false,);
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      StringsRouting.mainScreen,
+      (route) => false,
+    );
   }
+
   static void navToDoctorInfo(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.doctorInfo);
   }
@@ -125,14 +159,32 @@ class RoutingHelper {
   static void navToDoctorsDepartments(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.doctorsDepartments);
   }
+
   static void navToBookAppointmentTime(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.bookAppointmentTime);
   }
+
   static void navToBookAppointmentInfo(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.bookAppointmentInfo);
   }
+
   static void navToHistoryAppointments(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.historyAppointments);
   }
 
+  static void navToChatBot(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.chatBot);
+  }
+
+  static void navToNotifications(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.notifications);
+  }
+
+  static void navToReport(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.report);
+  }
+
+  // static void navToReportDetails(BuildContext context) {    //todo
+  //   Navigator.pushNamed(context, StringsRouting.reportDetails);
+  // }
 }
