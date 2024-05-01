@@ -6,3 +6,4 @@ export 'routing_helper.dart';
 export 'strings_routing.dart';
 export 'strings_app.dart';
 export 'packages_exports.dart';
+export 'services.dart';

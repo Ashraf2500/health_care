@@ -15,7 +15,7 @@ class AuthTypeBody extends StatelessWidget {
         //CustomBackgroundGradient(),
         Padding(
           padding:  EdgeInsets.all(FixedVariables.ScreenPadding32),
-          child: Column(
+          child: Column( 
             children: [
               SizedBox(
                 height: _heightScreen*0.15,

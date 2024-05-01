@@ -48,12 +48,20 @@ class ChangePasswordBody extends StatelessWidget {
           ),
           CustomTextFormField(
             hintText: "Password",
+            suffixIcon: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Icon(Icons.visibility_rounded,size: 22,color: ColorHelper.grayText.withOpacity(0.8),),
+            ),
             marginVerticalSides: _heightScreen*0.01,
             prefixIcon: Icon(Icons.lock_outline_rounded,color: ColorHelper.blackColor.withOpacity(0.6),),
             borderColor: ColorHelper.blackColor.withOpacity(0.5),
           ),
           CustomTextFormField(
             hintText: "Confirm Password",
+            suffixIcon: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Icon(Icons.visibility_rounded,size: 22,color: ColorHelper.grayText.withOpacity(0.8),),
+            ),
             marginVerticalSides: _heightScreen*0.01,
             prefixIcon: Icon(Icons.lock_outline_rounded,color: ColorHelper.blackColor.withOpacity(0.6),),
             borderColor: ColorHelper.blackColor.withOpacity(0.5),

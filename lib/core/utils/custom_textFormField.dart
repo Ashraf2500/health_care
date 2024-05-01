@@ -36,6 +36,8 @@ class CustomTextFormField extends StatelessWidget {
      this.marginVerticalSides,
      this.marginAllSides,
      this.onSubmitted,
+     this.onChanged,
+
 
 
   }) : super(key: key);
@@ -69,6 +71,7 @@ class CustomTextFormField extends StatelessWidget {
    final double? marginVerticalSides ;
    final validation;
    void Function(String text)?  onSubmitted ;
+   void Function(String text)?  onChanged ;
 
 
   @override
@@ -81,6 +84,7 @@ class CustomTextFormField extends StatelessWidget {
         controller: controller,
         validator: validation,
         onFieldSubmitted:onSubmitted,
+        onChanged:onChanged,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: hintStyle,

@@ -25,6 +25,7 @@ class ColorHelper {
   static const messageReceive = Color(0xffD9D9D9);
 
   static const redColor = Colors.red;
+  static const greenColor = Colors.green;
 
   static const boxShadow = Color(0xFF757575);
   static const backgroundSearchBar = Color(0xffecf8f8);

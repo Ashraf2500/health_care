@@ -16,6 +16,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.appBarHeight,
     this.elevation,
     this.shadowColor,
+    this.bottom,
   });
 
   String title;
@@ -31,6 +32,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
   double? appBarHeight ;
   double? elevation ;
   Color? shadowColor ;
+  PreferredSizeWidget? bottom;
 
 
   @override
@@ -65,6 +67,7 @@ class CustomBackAppBar extends StatelessWidget implements PreferredSizeWidget {
           : SizedBox(),
       centerTitle: centerTitle??true,
       actions: (hasActions==true)?actions??[]:[],
+      bottom: bottom,
     );
   }
 

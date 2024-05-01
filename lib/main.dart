@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         //BlocProvider(create: (context) => ChatBotCubit(),),
         BlocProvider(create: (context) => ReportDetailsCubit(),),
 
+
       ],
       child: MaterialApp(
         locale: DevicePreview.locale(context),

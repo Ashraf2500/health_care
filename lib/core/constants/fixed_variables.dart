@@ -11,6 +11,8 @@ class FixedVariables {
   static const double homeTopContainerRadius = 26.0;
 
   static const double heightButton = 55;
+  static const double heightTextField = 55;
+  static const double heightTextFieldValidation = 78;
   static const double ScreenPadding32 = 32;
   static const double ScreenPadding22 = 22;
   static const double padding12 = 12;

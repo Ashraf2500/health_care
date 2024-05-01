@@ -27,7 +27,6 @@ class _OnboardingBodyState extends State<OnboardingBody> {
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
-    final double _widthScreen =  MediaQuery.of(context).size.width;
 
     return Stack(
       children: [

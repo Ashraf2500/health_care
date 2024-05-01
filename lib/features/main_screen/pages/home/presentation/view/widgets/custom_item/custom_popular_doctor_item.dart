@@ -12,7 +12,6 @@ class CustomPopularDoctorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
-    final double _widthScreen = MediaQuery.of(context).size.width;
     return GestureDetector(
         onTap: (){
           context.read<GetDoctorInfoCubit>().getDoctorInfo(index);

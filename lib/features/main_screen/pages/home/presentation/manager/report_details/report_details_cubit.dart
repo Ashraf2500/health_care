@@ -42,7 +42,7 @@ class ReportDetailsCubit extends Cubit<ReportDetailsState> {
 
   Future<void> sendMessage({required String diagnosisDoctor , required String advicesDoctor , required String medicinesDoctor,required BuildContext context } ) async {
     String diagnosisMessage = "I have a medical report containing the doctor’s diagnosis. I want you to explain the diagnosis to me. This diagnosis is \" $diagnosisDoctor \" ";
-    String adviceMessage = "I have a medical report containing the doctor’s advices. I want you to explain this advices to me. This advices is \" $advicesDoctor \" ";
+    String adviceMessage = "I have a medical report containing the doctor’s advices. I want you to explain this advices to me. This advices is \" $advicesDoctor \" ,and start answer by advice";
     String reasonMessage = "I have a medical report that contains the doctor’s diagnosis. Based on this report, I just want you to explain to me what are the reasons that lead to the occurrence of the disease mentioned in the diagnosis. This diagnosis is \" $diagnosisDoctor \" ";
     String medicineListString = "I have some medicines names in this text. These text is \" $medicinesDoctor \" I would like to extract these names into a list  to use in dart program language code , store this list in variable called \" listOfMedicine \" ";
     String medicineListContent = "";
@@ -58,10 +58,10 @@ class ReportDetailsCubit extends Cubit<ReportDetailsState> {
       final DiagnosisResponse = await _chat.sendMessage(Content.text(diagnosisMessage));
       print("diagnosisDetails =====> \" ${ DiagnosisResponse.text} \" ");
 
-      final reasonsResponse = await _chat.sendMessage(Content.text(adviceMessage));
+      final reasonsResponse = await _chat.sendMessage(Content.text(reasonMessage));
       print("reasonsDetails =====> \" ${ reasonsResponse.text} \" ");
 
-      final advicesResponse = await _chat.sendMessage(Content.text(reasonMessage));
+      final advicesResponse = await _chat.sendMessage(Content.text(adviceMessage));
       print("advicesDetails =====> \" ${advicesResponse.text} \" ");
       //-----------------------------------------------------------------------------------------------
        final medicineListStringResponse = await _chat.sendMessage(Content.text(medicineListString));

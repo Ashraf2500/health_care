@@ -14,7 +14,7 @@ class ChatBotCubit extends Cubit<ChatBotState> {
   late final GenerativeModel _model;
   late final GenerativeModel _visionModel;
   late final ChatSession _chat;
-  final TextEditingController textController = TextEditingController();
+   TextEditingController textController = TextEditingController();
   final ScrollController listScrollController = ScrollController();
   final ImagePicker _picker = ImagePicker();
    bool canScroll = true;
@@ -65,6 +65,7 @@ class ChatBotCubit extends Cubit<ChatBotState> {
     canScroll = false;
     contentMessages.add(Message(text: message, fromUser: true));
     emit(ChatBotInitial(contentMessages, ChatStateStatus.loading));
+    textController = TextEditingController();
     try {
       final response = await _chat.sendMessage(Content.text(message));
       final text = response.text;

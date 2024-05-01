@@ -37,6 +37,7 @@ class ImageHelper {
   static const doctorsIcon  = "$_svgIcon/doctors.svg";
   static const patientsIcon  = "$_svgIcon/patients.svg";
   static const testXRayIcon  = "$_svgIcon/test_x_ray.svg";
+  static const xRayIcon  = "$_svgIcon/x_ray.svg";
 
   static const personIcon  = "$_svgIcon/person_icon.svg";
   static const scheduleIcon  = "$_svgIcon/calendar_icon.svg";
@@ -67,6 +68,10 @@ class ImageHelper {
   static const chatIcon  = "$_Icon/chat_icon.png";
   static const calenderIcon  = "$_Icon/calender_icon.png";
   static const calenderIcon2  = "$_Icon/calendar_2.png";
+
+  static const xRayTest1  = "$_Icon/x_ray_test_1.png";
+  static const xRayTest2  = "$_Icon/x_ray_test_2.png";
+  static const xRayTest3  = "$_Icon/x_ray_test_3.png";
 
 
   //-------------------------------------------------------------------

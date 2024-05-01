@@ -18,5 +18,7 @@ class StringsRouting {
   static const profileGeneralInfo= "/profileGeneralInfo";
   static const notifications= "/notifications";
   static const report= "/report";
+  static const createReport= "/createReport";
   static const reportDetails= "/reportDetails";
+  static const testXRay = "/testXRay";
 }

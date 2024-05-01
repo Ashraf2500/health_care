@@ -9,17 +9,19 @@ class CustomButton extends StatelessWidget {
      this.widthButton,
      this.elevation,
      this.textStyle,
+     this.child,
      this.borderRadius,
      this.isOutlined,
      this.outlinedBorderColor,
      this.marginAllSides,
      this.marginHorizontalSides,
      this.marginVerticalSides,
+     this.padding,
      required this.onPressed,
-     required this.text,
+     this.text =" ",
   }) : super(key: key);
 
-   final String text ;
+   final String? text ;
    final VoidCallback onPressed;
    final bool? isOutlined ;
    final Color? backgroundColor ;
@@ -32,6 +34,8 @@ class CustomButton extends StatelessWidget {
    final double? marginAllSides ;
    final double? marginHorizontalSides ;
    final double? marginVerticalSides ;
+   final Widget? child ;
+   final EdgeInsetsGeometry? padding ;
 
 
   @override
@@ -59,10 +63,11 @@ class CustomButton extends StatelessWidget {
            shape: RoundedRectangleBorder(
              borderRadius: borderRadius ?? BorderRadius.circular(FixedVariables.radius8),
            ),
+           padding:padding,
          ),
 
-         child: Text(
-           text,
+         child: child??Text(
+           text!,
            style: textStyle?? TextStyleHelper.style16B.copyWith(color: ColorHelper.whiteColor) ,
          ),
        ),
@@ -91,7 +96,7 @@ class CustomButton extends StatelessWidget {
              ),
 
              child: Text(
-                   text,
+                   text!,
                    style: textStyle?? TextStyleHelper.style16B.copyWith(color: ColorHelper.mainColor) ,
                  ),
                ),

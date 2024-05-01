@@ -38,25 +38,48 @@ class CustomGeneralInfo extends StatelessWidget {
               SizedBox(
                 height: FixedVariables.heightScreenQuery(context)  * 0.08,
               ),
-              Container(
+              SizedBox(
                 height: FixedVariables.heightScreenQuery(context)*0.21,
                 width: FixedVariables.widthScreenQuery(context)*0.44,
-                decoration: BoxDecoration(
-                  color: ColorHelper.whiteColor,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: ColorHelper.backWhiteColor,width: 1.5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.shade600,
-                      spreadRadius: 1,
-                      blurRadius: 4,
-                      offset: const Offset(0, -1),
+                child: Stack(
+                  children: [
+                    Container(
+                      height: FixedVariables.heightScreenQuery(context)*0.21,
+                      width: FixedVariables.widthScreenQuery(context)*0.44,
+                      decoration: BoxDecoration(
+                        color: ColorHelper.whiteColor,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: ColorHelper.backWhiteColor,width: 1.5),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade600,
+                            spreadRadius: 1,
+                            blurRadius: 4,
+                            offset: const Offset(0, -1),
+                          ),
+                        ],
+                        image: DecorationImage(
+                          image: AssetImage(ImageHelper.person12),
+                          fit:BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        margin:EdgeInsets.only(
+                            bottom: FixedVariables.heightScreenQuery(context)*0.015,
+                            right: FixedVariables.widthScreenQuery(context)*0.015,
+                        ),
+                        decoration: BoxDecoration(
+                          color: ColorHelper.grayText.withOpacity(0.7),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(Icons.camera_alt,size: 24, color: ColorHelper.whiteColor,),
+                      ),
                     ),
                   ],
-                  image: DecorationImage(
-                    image: AssetImage(ImageHelper.person12),
-                    fit:BoxFit.fill,
-                  ),
                 ),
               ),
               SizedBox(
@@ -136,41 +159,41 @@ class CustomGeneralInfo extends StatelessWidget {
                       ),
 
                       //------------------------------------------------------------------------
-
-                      BlocBuilder<EditSpecialtyCubit, EditSpecialtyState>(
-                        builder: (context, state) {
-                          bool canEdit = (state is EditSpecialtyChanged) ? state.canEdit : false ;
-                          String value =  context.read<EditSpecialtyCubit>().getSpecialty ;
-                          return CustomEditProfileItem(
-                            title: "Specialty",
-                            editingController: specialtyController,
-                            editState: EditSpecialtyChanged(canEdit: false),
-                            canEdit: canEdit,
-                            value:value,
-                            onSubmitted: (text) {
-                              if (RegExp(r'[a-zA-Z0-9]').hasMatch(text)) {
-                                context.read<EditSpecialtyCubit>().setSpecialty = text;
-                                context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
-                              }
-                              else if(text.trim().isEmpty){
-                                //context.read<EditSpecialtyCubit>().setSpecialty = context.read<EditSpecialtyCubit>().getSpecialty;
-                                context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
-                              }
-                              else{
-                                //context.read<EditSpecialtyCubit>().setSpecialty = context.read<EditSpecialtyCubit>().getSpecialty;
-                                context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
-                              }
-                            },
-                            suffixOnTap: () {
-                             //context.read<EditSpecialtyCubit>().setSpecialty = specialtyController.text;
-                              context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
-                            },
-                          );
-                        },
-                      ),
-                      SizedBox(
-                        height:  FixedVariables.heightScreenQuery(context) * 0.02,
-                      ),
+                      // todo
+                      // BlocBuilder<EditSpecialtyCubit, EditSpecialtyState>(
+                      //   builder: (context, state) {
+                      //     bool canEdit = (state is EditSpecialtyChanged) ? state.canEdit : false ;
+                      //     String value =  context.read<EditSpecialtyCubit>().getSpecialty ;
+                      //     return CustomEditProfileItem(
+                      //       title: "Specialty",
+                      //       editingController: specialtyController,
+                      //       editState: EditSpecialtyChanged(canEdit: false),
+                      //       canEdit: canEdit,
+                      //       value:value,
+                      //       onSubmitted: (text) {
+                      //         if (RegExp(r'[a-zA-Z0-9]').hasMatch(text)) {
+                      //           context.read<EditSpecialtyCubit>().setSpecialty = text;
+                      //           context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
+                      //         }
+                      //         else if(text.trim().isEmpty){
+                      //           //context.read<EditSpecialtyCubit>().setSpecialty = context.read<EditSpecialtyCubit>().getSpecialty;
+                      //           context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
+                      //         }
+                      //         else{
+                      //           //context.read<EditSpecialtyCubit>().setSpecialty = context.read<EditSpecialtyCubit>().getSpecialty;
+                      //           context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
+                      //         }
+                      //       },
+                      //       suffixOnTap: () {
+                      //        //context.read<EditSpecialtyCubit>().setSpecialty = specialtyController.text;
+                      //         context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);
+                      //       },
+                      //     );
+                      //   },
+                      // ),
+                      // SizedBox(
+                      //   height:  FixedVariables.heightScreenQuery(context) * 0.02,
+                      // ),
 
                       //------------------------------------------------------------------------
 

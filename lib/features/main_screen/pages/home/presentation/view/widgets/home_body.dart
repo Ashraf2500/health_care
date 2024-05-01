@@ -60,6 +60,9 @@ class HomeBody extends StatelessWidget {
                           else if (index == 2) {
                             RoutingHelper.navToChatBot(context);
                           }
+                          else if (index == 3) {
+                            RoutingHelper.navToTestXRay(context);
+                          }
                         }
                         else if (_userType == UserType.doctor) {
                           if (index == 0) {
@@ -67,6 +70,9 @@ class HomeBody extends StatelessWidget {
                           }
                           else if (index == 1) {
                             RoutingHelper.navToChatBot(context);
+                          }
+                          else if (index == 2) {
+                            RoutingHelper.navToTestXRay(context);
                           }
                         }
                         if (_userType == UserType.admin) {

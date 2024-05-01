@@ -29,10 +29,20 @@ class RoutingHelper {
         return _PageRouting.page(settings, AuthTypeView());
 
       case StringsRouting.login:
-        return _PageRouting.page(settings, LoginView());
+        return _PageRouting.page(
+            settings,
+            BlocProvider(
+              create: (context) => LoginCubit(),
+              child: LoginView(),
+            ));
 
       case StringsRouting.signUp:
-        return _PageRouting.page(settings, SignUpView());
+        return _PageRouting.page(
+            settings,
+            BlocProvider(
+              create: (context) => SignUpCubit(),
+              child: SignUpView(),
+            ));
 
       case StringsRouting.takePhone:
         return _PageRouting.page(settings, TakePhoneView());
@@ -63,6 +73,18 @@ class RoutingHelper {
 
       case StringsRouting.historyAppointments:
         return _PageRouting.page(settings, HistoryAppointments());
+
+      case StringsRouting.createReport:
+        return _PageRouting.page(settings, CreateReport());
+
+      case StringsRouting.testXRay:
+        return _PageRouting.page(
+            settings,
+            BlocProvider(
+              create: (context) => TakeXRayImageCubit(),
+              child: TestXRay(),
+            ));
+
 
       case StringsRouting.chatBot:
         return _PageRouting.page(
@@ -184,6 +206,13 @@ class RoutingHelper {
     Navigator.pushNamed(context, StringsRouting.report);
   }
 
+  static void navToCreateReport(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.createReport);
+  }
+
+  static void navToTestXRay(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.testXRay);
+  }
   // static void navToReportDetails(BuildContext context) {    //todo
   //   Navigator.pushNamed(context, StringsRouting.reportDetails);
   // }

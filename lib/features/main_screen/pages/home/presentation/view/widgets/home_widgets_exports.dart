@@ -16,3 +16,7 @@ export 'custom_item/custom_notification_item.dart';
 export 'report.dart';
 export 'report_details_by_ai.dart';
 export 'custom_item/custom_item_exports.dart';
+export 'create_report.dart';
+export 'add_medicine_bottom_sheet.dart';
+export 'test_x_ray.dart';
+export 'check_x_ray_diagnosis.dart';

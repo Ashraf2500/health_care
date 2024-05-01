@@ -107,7 +107,13 @@ class CustomAppointmentItem extends StatelessWidget {
                   ],
                 ),
                 Spacer(),
-                (withOptions==true)?Icon(Icons.more_vert,size: 20,color: ColorHelper.grayText):SizedBox(),
+                (withOptions==true)
+                    ?GestureDetector(
+                      onTap: (){
+                        RoutingHelper.navToCreateReport(context);
+                      },
+                      child: Icon(Icons.more_vert,size: 20,color: ColorHelper.grayText)
+                    ):SizedBox(),
               ],
             ),
           ),

@@ -67,13 +67,14 @@ class CustomReport extends StatelessWidget {
               ),
               body: SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal:
-                          FixedVariables.widthScreenQuery(context) * 0.03),
-                  margin: EdgeInsets.symmetric(
-                    horizontal: FixedVariables.widthScreenQuery(context) * 0.04,
-                    vertical: FixedVariables.heightScreenQuery(context) * 0.03,
-                  ).copyWith(bottom: FixedVariables.heightScreenQuery(context) * 0.04),
+                  padding: EdgeInsets.symmetric(horizontal:
+                  FixedVariables.widthScreenQuery(context) * 0.03),
+                  margin: EdgeInsets.only(
+                    left: FixedVariables.widthScreenQuery(context) * 0.04,
+                    right: FixedVariables.widthScreenQuery(context) * 0.04,
+                    top: FixedVariables.heightScreenQuery(context) * 0.03,
+                    bottom: FixedVariables.heightScreenQuery(context) * 0.04
+                  ),
                   decoration: BoxDecoration(
                     color: ColorHelper.whiteColor,
                     borderRadius: BorderRadius.circular(FixedVariables.radius8),

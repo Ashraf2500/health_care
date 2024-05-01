@@ -9,7 +9,6 @@ class CustomPatientsTodayAppointments extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
-    final double _widthScreen = MediaQuery.of(context).size.width;
     _userType = context.read<UserCubit>().userType;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,6 +43,7 @@ class CustomPatientsTodayAppointments extends StatelessWidget {
                   ),
                   child: CustomAppointmentItem(
                     index: index,
+                    withOptions: true,
                     showPhone: (_userType==UserType.admin)?false:true,
                     showSubtitle: (_userType==UserType.admin)?true:false,
                     listOfItems:(_userType==UserType.doctor)?todayAppointmentsPatients:availableAppointmentsDoctors,
