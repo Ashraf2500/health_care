@@ -21,4 +21,5 @@ class StringsRouting {
   static const createReport= "/createReport";
   static const reportDetails= "/reportDetails";
   static const testXRay = "/testXRay";
+  static const setSchedule = "/setSchedule";
 }

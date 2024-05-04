@@ -5,7 +5,7 @@ import 'package:health_care/features/features_exports.dart';
 class CustomGeneralInfo extends StatelessWidget {
   CustomGeneralInfo({Key? key}) : super(key: key);
 
-  UserType? _userType;
+  UserTypeData? _userType;
 
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -14,7 +14,7 @@ class CustomGeneralInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    _userType = context.read<UserCubit>().userType;
+    _userType = context.read<UserTypeCubit>().userType;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,

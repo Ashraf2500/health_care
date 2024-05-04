@@ -6,12 +6,12 @@ class CustomSliverAppBar extends StatelessWidget {
     super.key,
   });
 
-   UserType? _userType;
+   UserTypeData? _userType;
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
     final double _widthScreen = MediaQuery.of(context).size.width;
-     _userType = context.read<UserCubit>().userType;
+     _userType = context.read<UserTypeCubit>().userType;
 
     return BlocBuilder<HomeAppBarCubit, HomeAppBarState>(
       builder: (context, state) {
@@ -105,14 +105,14 @@ class CustomSliverAppBar extends StatelessWidget {
                     height: _heightScreen * 0.01,
                   ),
                   Text(
-                    (_userType ==UserType.patient)
+                    (_userType ==UserTypeData.patient)
                         ?"Find Your Doctor"
-                        :(_userType ==UserType.doctor)
+                        :(_userType ==UserTypeData.doctor)
                         ?"Find Your Appointments"
-                        :(_userType ==UserType.admin)
+                        :(_userType ==UserTypeData.admin)
                         ?"Find Doctors' Appointments"
                         :"",
-                    style: (_userType ==UserType.patient)?TextStyleHelper.style16M:TextStyleHelper.style12M,
+                    style: (_userType ==UserTypeData.patient)?TextStyleHelper.style16M:TextStyleHelper.style12M,
                   ),
                   SizedBox(
                     height: _heightScreen * 0.06,

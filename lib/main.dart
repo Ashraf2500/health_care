@@ -18,13 +18,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => UserCubit(),),
+        BlocProvider(create: (context) => UserTypeCubit(),),
         BlocProvider(create: (context) => GetDoctorInfoCubit(),),
         BlocProvider(create: (context) => EditNameCubit(),),
         BlocProvider(create: (context) => EditPhoneCubit(),),
         BlocProvider(create: (context) => EditSpecialtyCubit(),),
         //BlocProvider(create: (context) => ChatBotCubit(),),
         BlocProvider(create: (context) => ReportDetailsCubit(),),
+        BlocProvider(create: (context) => SwitchFingerprintCubit(),),
+        BlocProvider(create: (context) => CurrentUserDataCubit(),),
 
 
       ],

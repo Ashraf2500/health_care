@@ -40,7 +40,7 @@ class UserTypeBody extends StatelessWidget {
                Spacer(),
                CustomButton(
                  onPressed: (){
-                   context.read<UserCubit>().chooseUserType(type: UserType.patient);
+                   context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.patient);
 
                    RoutingHelper.navToAuthType(context);
                  },
@@ -50,7 +50,7 @@ class UserTypeBody extends StatelessWidget {
                ),
                CustomButton(
                  onPressed: (){
-                   context.read<UserCubit>().chooseUserType(type: UserType.doctor);
+                   context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.doctor);
                    RoutingHelper.navToAuthType(context);
                  },
                  text: "Doctor",
@@ -59,7 +59,7 @@ class UserTypeBody extends StatelessWidget {
                ),
                CustomButton(
                  onPressed: (){
-                   context.read<UserCubit>().chooseUserType(type: UserType.admin);
+                   context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.admin);
                    RoutingHelper.navToAuthType(context);
                  },
                  text: "Admin",

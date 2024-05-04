@@ -25,32 +25,30 @@ class _SplashBodyState extends State<SplashBody> with TickerProviderStateMixin {
       duration: Duration(seconds: 5),
     )..addStatusListener(
           (status) async {
-      /*  if (status == AnimationStatus.completed) {
+        if (status == AnimationStatus.completed) {
           final token = await CacheHelper.getData(key: "token");
           final finger = await CacheHelper.getData(key: "finger");
+          final userTypeCash = await CacheHelper.getData(key: "userType");
 
-
-          if (finger == "true") {
+          if (finger == true) {
             FingerPrint().authAuth(context);
           } else {
             if (token != null) {
-              Navigator.of(context).pushReplacement(
-                PageTransition(
-                  type: PageTransitionType.fade,
-                  child: AttendanceView(),
-                  curve: Curves.fastEaseInToSlowEaseOut,
-                  duration: Duration(milliseconds: 1500),
-                ),
-              );
+              if(userTypeCash=='user'){
+                context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.patient);
+              }
+              else if(userTypeCash=='doctor'){
+                context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.doctor);
+              }
+              else if(userTypeCash=='admin'){
+                context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.admin);
+              }
+              ApiServices.token=token;
+              RoutingHelper.navToMainScreen(context);
+
+
             } else {
-              Navigator.of(context).pushReplacement(
-                PageTransition(
-                  type: PageTransitionType.fade,
-                  child: LoginView(),
-                  curve: Curves.fastEaseInToSlowEaseOut,
-                  duration: Duration(milliseconds: 1500),
-                ),
-              );
+              RoutingHelper.navToLogin(context);
             }
           }
 
@@ -60,7 +58,7 @@ class _SplashBodyState extends State<SplashBody> with TickerProviderStateMixin {
               _controller.reset();
             },
           );
-        }*/
+        }
       },
 
 
@@ -94,10 +92,10 @@ class _SplashBodyState extends State<SplashBody> with TickerProviderStateMixin {
       });
     });*/
 
-    Future.delayed(const Duration(milliseconds: 6000), () {
-      RoutingHelper.navToOnboarding(context);
-
-    });
+    // Future.delayed(const Duration(milliseconds: 6000), () {
+    //   RoutingHelper.navToOnboarding(context);
+    //
+    // });
   }
 
   @override

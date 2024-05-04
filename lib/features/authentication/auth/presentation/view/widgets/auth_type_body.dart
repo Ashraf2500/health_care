@@ -4,11 +4,11 @@ import 'package:health_care/features/features_exports.dart';
 class AuthTypeBody extends StatelessWidget {
    AuthTypeBody({Key? key}) : super(key: key);
 
-  UserType? _userType;
+  UserTypeData? _userTypeData;
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
-    _userType = context.read<UserCubit>().userType;
+    _userTypeData = context.read<UserTypeCubit>().userType;
 
     return Stack(
       children: [
@@ -55,7 +55,7 @@ class AuthTypeBody extends StatelessWidget {
                 text: "Login",
                 marginVerticalSides: _heightScreen*0.01,
               ),
-              (_userType==UserType.patient)?CustomButton(
+              (_userTypeData==UserTypeData.patient)?CustomButton(
                 onPressed: (){
                   RoutingHelper.navToSignUp(context);
                 },

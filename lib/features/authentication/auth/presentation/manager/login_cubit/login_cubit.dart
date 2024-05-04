@@ -53,12 +53,11 @@ class LoginCubit extends Cubit<LoginState> {
 
 
   void login({required BuildContext context, required String phone, required String password}) {
-    RoutingHelper.navToMainScreen(context); // todo delete this line
-      //todo remove this comment
-      // if (loginFormKey.currentState!.validate()) {
-      //   loginFormKey.currentState!.save();
-      //   _signIn(context:context, phone: phone,  password: password);
-      // }
+    //RoutingHelper.navToMainScreen(context);  //todo
+      if (loginFormKey.currentState!.validate()) {
+        loginFormKey.currentState!.save();
+        _signIn(context:context, phone: phone,  password: password);
+      }
 
   }
 
@@ -67,8 +66,21 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoadingLoginState());
       LoginModel loginData = await loginRepo(phone: phone, password: password);
       emit(SuccessLoginState(loginData: loginData.data));
+
+      //save token and user type in Services and cash
+      ApiServices.token =loginData.data!.token;
+      CacheHelper.saveData(key: "token", value:loginData.data!.token);
+      CacheHelper.saveData(key: "userType", value:loginData.data!.user!.role);
+
+      // check user type
+      final _userTypeCash = loginData.data!.user!.role ;
+      _checkUserType(_userTypeCash, context);
+
+      // show Success Snackbar
       showSnackbar(context:context,message:"login Successful", backGroundColor: ColorHelper.greenColor.shade500);
-      Future.delayed(const Duration(seconds: 4), () {
+
+      // navigation to main screen
+      Future.delayed(const Duration(seconds: 3), () {
         RoutingHelper.navToMainScreen(context);
       });
 
@@ -81,6 +93,17 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
+  void _checkUserType(String? _userTypeCash, BuildContext context) {
+    if(_userTypeCash=='user'){
+      context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.patient);
+    }
+    else if(_userTypeCash=='doctor'){
+      context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.doctor);
+    }
+    else if(_userTypeCash=='admin'){
+      context.read<UserTypeCubit>().chooseUserType(type: UserTypeData.admin);
+    }
+  }
 
 
 

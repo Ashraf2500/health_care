@@ -20,3 +20,4 @@ export 'create_report.dart';
 export 'add_medicine_bottom_sheet.dart';
 export 'test_x_ray.dart';
 export 'check_x_ray_diagnosis.dart';
+export 'set_schedule.dart';

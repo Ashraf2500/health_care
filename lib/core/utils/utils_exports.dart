@@ -6,3 +6,6 @@ export 'custom_back_app_bar.dart';
 export 'custom_appointment_item.dart';
 export 'servers/servers_exports.dart';
 export 'custom_snack_bar_function.dart';
+export 'shared/shared_exports.dart';
+export 'finger_print.dart';
+export 'current_user/current_user_export.dart';

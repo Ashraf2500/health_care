@@ -4,12 +4,12 @@ import 'package:health_care/features/features_exports.dart';
 class CustomPatientsTodayAppointments extends StatelessWidget {
    CustomPatientsTodayAppointments({Key? key}) : super(key: key);
 
-  UserType? _userType;
+  UserTypeData? _userTypeData;
 
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
-    _userType = context.read<UserCubit>().userType;
+    _userTypeData = context.read<UserTypeCubit>().userType;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -44,9 +44,9 @@ class CustomPatientsTodayAppointments extends StatelessWidget {
                   child: CustomAppointmentItem(
                     index: index,
                     withOptions: true,
-                    showPhone: (_userType==UserType.admin)?false:true,
-                    showSubtitle: (_userType==UserType.admin)?true:false,
-                    listOfItems:(_userType==UserType.doctor)?todayAppointmentsPatients:availableAppointmentsDoctors,
+                    showPhone: (_userTypeData==UserTypeData.admin)?false:true,
+                    showSubtitle: (_userTypeData==UserTypeData.admin)?true:false,
+                    listOfItems:(_userTypeData==UserTypeData.doctor)?todayAppointmentsPatients:availableAppointmentsDoctors,
 
                   ),
                 ),

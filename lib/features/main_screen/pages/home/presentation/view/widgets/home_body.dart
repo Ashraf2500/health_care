@@ -4,7 +4,7 @@ import 'package:health_care/features/features_exports.dart';
 class HomeBody extends StatelessWidget {
   HomeBody({Key? key}) : super(key: key);
 
-  UserType? _userType;
+  UserTypeData? _userTypeData;
 
 
   @override
@@ -17,8 +17,8 @@ class HomeBody extends StatelessWidget {
         .of(context)
         .size
         .width;
-    _userType = context
-        .read<UserCubit>()
+    _userTypeData = context
+        .read<UserTypeCubit>()
         .userType;
     return Padding(
       padding: EdgeInsets.only(left: FixedVariables.ScreenPadding22),
@@ -39,9 +39,9 @@ class HomeBody extends StatelessWidget {
             height: _heightScreen * 0.11,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: (_userType == UserType.patient)
+                itemCount: (_userTypeData == UserTypeData.patient)
                     ? AllCategories[StringsApp.patientUser]!.length
-                    : (_userType == UserType.doctor)
+                    : (_userTypeData == UserTypeData.doctor)
                     ? AllCategories[StringsApp.doctorUser]!.length
                     : AllCategories[StringsApp.adminUser]!.length,
                 itemBuilder: (context, index) {
@@ -50,7 +50,7 @@ class HomeBody extends StatelessWidget {
                     EdgeInsets.symmetric(horizontal: _widthScreen * 0.025),
                     child: GestureDetector(
                       onTap: () {
-                        if (_userType == UserType.patient) {
+                        if (_userTypeData == UserTypeData.patient) {
                           if (index == 0) {
                             RoutingHelper.navToHistoryAppointments(context);
                           }
@@ -64,18 +64,21 @@ class HomeBody extends StatelessWidget {
                             RoutingHelper.navToTestXRay(context);
                           }
                         }
-                        else if (_userType == UserType.doctor) {
+                        else if (_userTypeData == UserTypeData.doctor) {
                           if (index == 0) {
-                            RoutingHelper.navToHistoryAppointments(context);
+                            RoutingHelper.navToSetSchedule(context);
                           }
                           else if (index == 1) {
-                            RoutingHelper.navToChatBot(context);
+                            RoutingHelper.navToHistoryAppointments(context);
                           }
                           else if (index == 2) {
                             RoutingHelper.navToTestXRay(context);
                           }
+                          else if (index == 3) {
+                            RoutingHelper.navToChatBot(context);
+                          }
                         }
-                        if (_userType == UserType.admin) {
+                        if (_userTypeData == UserTypeData.admin) {
                           if (index == 0) {
                             RoutingHelper.navToDoctorsDepartments(context);
                           }
@@ -91,11 +94,11 @@ class HomeBody extends StatelessWidget {
           SizedBox(
             height: _heightScreen * 0.04,
           ),
-          (_userType == UserType.patient)
+          (_userTypeData == UserTypeData.patient)
               ? CustomViewPopularDoctors()
-              : (_userType == UserType.doctor)
+              : (_userTypeData == UserTypeData.doctor)
               ? CustomPatientsTodayAppointments()
-              : (_userType == UserType.admin)
+              : (_userTypeData == UserTypeData.admin)
               ? CustomPatientsTodayAppointments()
               : CustomViewPopularDoctors(),
 

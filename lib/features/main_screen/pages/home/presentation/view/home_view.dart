@@ -10,7 +10,11 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   ScrollController scrollController = ScrollController();
-
+  @override
+  void initState() {
+    context.read<SwitchFingerprintCubit>().fetchInitialFingerSwitch();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(

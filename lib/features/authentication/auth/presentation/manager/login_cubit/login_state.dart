@@ -9,7 +9,7 @@ class LoginInitial extends LoginState {}
 class ValidationLoginState extends LoginState {}
 class LoadingLoginState extends LoginState {}
 class SuccessLoginState extends LoginState {
-  Data? loginData ;
+  DataLogin? loginData ;
   SuccessLoginState({required this.loginData});
 }
 class ErrorLoginState extends LoginState {

@@ -10,6 +10,7 @@ export 'package:flutter_rating_bar/flutter_rating_bar.dart';
 export 'package:table_calendar/table_calendar.dart';
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 export 'package:flutter_speed_dial/flutter_speed_dial.dart';
+export 'package:local_auth_ios/local_auth_ios.dart';
 
 
 

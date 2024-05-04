@@ -47,6 +47,8 @@ class ImageHelper {
   static const shareIcon  = "$_svgIcon/share_icon.svg";
   static const signOutIcon  = "$_svgIcon/signout_icon.svg";
   static const sendMessage  = "$_svgIcon/send_message.svg";
+  static const fingerprint_icon  = "$_svgIcon/fingerprint_icon.svg";
+  static const schedule_category  = "$_svgIcon/schedule_category.svg";
 
   static const all_department  = "$_svgIcon/fill_icons/all_department.svg";
   static const dentists_department  = "$_svgIcon/fill_icons/dentist_department.svg";

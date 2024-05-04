@@ -23,16 +23,20 @@ Map<String,List<Category>>AllCategories = {
   //---------------------------------------
   StringsApp.doctorUser :[
     Category(
+      label: "Schedule",
+      image: ImageHelper.schedule_category,
+    ),
+    Category(
       label: "History",
       image: ImageHelper.historyIcon,
     ),
     Category(
-      label: "Chat-bot",
-      image: ImageHelper.chatBotIcon,
-    ),
-    Category(
       label: "Test X-ray",
       image: ImageHelper.testXRayIcon,
+    ),
+    Category(
+      label: "Chat-bot",
+      image: ImageHelper.chatBotIcon,
     ),
   ],
 

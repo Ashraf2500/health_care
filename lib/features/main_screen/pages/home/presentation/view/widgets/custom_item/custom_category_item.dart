@@ -9,13 +9,13 @@ class CustomCategoryItem extends StatelessWidget {
   }) : super(key: key);
 
   int index ;
-  UserType? _userType;
+  UserTypeData? _userTypeData;
 
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
     final double _widthScreen =  MediaQuery.of(context).size.width;
-    _userType = context.read<UserCubit>().userType;
+    _userTypeData = context.read<UserTypeCubit>().userType;
     return Container(
       width: _widthScreen*0.23,
       decoration: BoxDecoration(
@@ -27,20 +27,21 @@ class CustomCategoryItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              (_userType == UserType.patient)
+              (_userTypeData == UserTypeData.patient)
                   ? AllCategories[StringsApp.patientUser]![index].image
-                  :(_userType == UserType.doctor)
+                  :(_userTypeData == UserTypeData.doctor)
                   ?AllCategories[StringsApp.doctorUser]![index].image
                   : AllCategories[StringsApp.adminUser]![index].image,
+              colorFilter: ColorFilter.mode(ColorHelper.mainColor, BlendMode.srcIn),
               height: _heightScreen*0.05,
             ),
             SizedBox(
               height: _heightScreen*0.01,
             ),
             Text(
-              (_userType == UserType.patient)
+              (_userTypeData == UserTypeData.patient)
                   ? AllCategories[StringsApp.patientUser]![index].label
-                  :(_userType == UserType.doctor)
+                  :(_userTypeData == UserTypeData.doctor)
                   ?AllCategories[StringsApp.doctorUser]![index].label
                   : AllCategories[StringsApp.adminUser]![index].label,
               style: TextStyleHelper.style10B.copyWith(color: ColorHelper.mainColor),

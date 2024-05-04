@@ -6,10 +6,11 @@ class ApiServices {
   final _dio = Dio(
     BaseOptions(baseUrl: "https://graduation-9a7o.onrender.com"),
   );
+
   Dio get getDio =>  _dio;
 
   static const String authorization ="13cc665abb3b9d8a07e3211208e3a5a2c6106baa0c2354487a785fc6ef2be1219f4a042ea822fe4087bd4fd9a2614595";
-
+  static String? token ;
 
 
   String connectionErrorMessage ="There is no internet , make sure your connection !";

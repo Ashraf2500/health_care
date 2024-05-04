@@ -77,6 +77,9 @@ class RoutingHelper {
       case StringsRouting.createReport:
         return _PageRouting.page(settings, CreateReport());
 
+      case StringsRouting.setSchedule:
+        return _PageRouting.page(settings, SetSchedule());
+
       case StringsRouting.testXRay:
         return _PageRouting.page(
             settings,
@@ -163,6 +166,7 @@ class RoutingHelper {
   }
 
   static void navToMainScreen(BuildContext context) {
+    context.read<CurrentUserDataCubit>().currentUserData(context: context);
     Navigator.pushNamedAndRemoveUntil(
       context,
       StringsRouting.mainScreen,
@@ -212,6 +216,9 @@ class RoutingHelper {
 
   static void navToTestXRay(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.testXRay);
+  }
+  static void navToSetSchedule(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.setSchedule);
   }
   // static void navToReportDetails(BuildContext context) {    //todo
   //   Navigator.pushNamed(context, StringsRouting.reportDetails);
