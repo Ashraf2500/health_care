@@ -22,14 +22,29 @@ class _HomeViewState extends State<HomeView> {
         context.read<HomeAppBarCubit>().scrollHomeAppBar(scrollController: scrollController);
         return true;
       },
-      child: CustomScrollView(
-        slivers: [
-          CustomSliverAppBar(),
-          SliverToBoxAdapter(
-            child: HomeBody(),
-          ),
-        ],
-        controller: scrollController,
+      child: RefreshIndicator(
+        onRefresh: ()async{
+         UserTypeData? _userType = context.read<UserTypeCubit>().userType ;
+         if(_userType == UserTypeData.patient){
+           context.read<GetPopularDoctorsCubit>().getPopularDoctors(context: context);
+         }
+         else if(_userType == UserTypeData.doctor){
+         context.read<GetDoctorAppointmentsCubit>().getDoctorAppointments(context: context );
+          }
+         else{
+         context.read<GetAllAppointmentsCubit>().geAllAppointments(context: context );
+         }
+
+        },
+        child: CustomScrollView(
+          slivers: [
+            CustomSliverAppBar(),
+            SliverToBoxAdapter(
+              child: HomeBody(),
+            ),
+          ],
+          controller: scrollController,
+        ),
       ),
     );
   }

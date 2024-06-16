@@ -40,7 +40,7 @@ class ReportDetailsCubit extends Cubit<ReportDetailsState> {
 
   }
 
-  Future<void> sendMessage({required String diagnosisDoctor , required String advicesDoctor , required String medicinesDoctor,required BuildContext context } ) async {
+  Future<void> sendMessage({required String diagnosisDoctor , required String advicesDoctor , required String medicinesDoctor,required BuildContext context , required List<String> listMeds  } ) async {
     String diagnosisMessage = "I have a medical report containing the doctor’s diagnosis. I want you to explain the diagnosis to me. This diagnosis is \" $diagnosisDoctor \" ";
     String adviceMessage = "I have a medical report containing the doctor’s advices. I want you to explain this advices to me. This advices is \" $advicesDoctor \" ,and start answer by advice";
     String reasonMessage = "I have a medical report that contains the doctor’s diagnosis. Based on this report, I just want you to explain to me what are the reasons that lead to the occurrence of the disease mentioned in the diagnosis. This diagnosis is \" $diagnosisDoctor \" ";
@@ -77,7 +77,7 @@ class ReportDetailsCubit extends Cubit<ReportDetailsState> {
       print("medicineListContent =====>  ");
       print(listOfMedicines);
 
-      for (int i =0; i < listOfMedicines.length; i++) {
+      for (int i =0; i < listMeds.length; i++) {
         String medicineMessageItem = "${listOfMedicines[i]} this is medicine , What are the cases in which it is recommended to use this medication, what are the cases in which it is not recommended to use this medication, and what are the side effects of this medication? ";
         final medicineListStringResponse = await _chat.sendMessage(Content.text(medicineMessageItem));
         print("medicineListStringResponse =====> \" ${medicineListStringResponse.text} \" ");
@@ -108,7 +108,8 @@ class ReportDetailsCubit extends Cubit<ReportDetailsState> {
           reasonsDetails:reasonsResponse.text,
           advicesDetails:advicesResponse.text,
           treatmentDetails:advicesResponse.text,
-          listOfMedicine:listOfMedicines,
+          listOfMedicine: listMeds,
+          //listOfMedicine:listOfMedicines,
           listOfMedicineDetails:listMedicinesDetails,
         );
       }));

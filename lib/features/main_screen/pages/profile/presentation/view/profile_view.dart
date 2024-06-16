@@ -27,6 +27,25 @@ class ProfileView extends StatelessWidget {
                     Container(
                       height: FixedVariables.heightScreenQuery(context) * 0.08,
                       width: FixedVariables.widthScreenQuery(context) * 0.2,
+                      child: (state is SuccessCurrentUserDataState)?ClipOval(
+                        child:FadeInImage(
+                          image: NetworkImage((_userTypeData==UserTypeData.patient)?"https://graduation-9a7o.onrender.com/src/files/avatar/${state.dataCurrentPatient?.avatar}":
+                          (_userTypeData==UserTypeData.doctor)?"https://graduation-9a7o.onrender.com/src/files/avatar/${state.dataCurrentDoctor?.avatar}":
+                          "https://graduation-9a7o.onrender.com/src/files/avatar/${state.dataCurrentAdmin?.avatar}"),
+                          placeholder: AssetImage(ImageHelper.person12),
+                          imageErrorBuilder:
+                              (context, error, stackTrace) {
+                            return Image.asset(ImageHelper.person12,
+                                fit: BoxFit.fitWidth);
+                          },
+                          fit: BoxFit.fill,
+                        ),
+                        // child:Image.network(
+                        //     (_userTypeData==UserTypeData.patient)?"https://graduation-9a7o.onrender.com/src/files/avatar/${state.dataCurrentPatient!.avatar}":
+                        //     (_userTypeData==UserTypeData.doctor)?"https://graduation-9a7o.onrender.com/src/files/avatar/${state.dataCurrentDoctor?.avatar}":
+                        //     "https://graduation-9a7o.onrender.com/src/files/avatar/${state.dataCurrentAdmin!.avatar}",
+                        // ),
+                      ):SizedBox(),
                       decoration: BoxDecoration(
                         color: ColorHelper.whiteColor,
                         shape: BoxShape.circle,

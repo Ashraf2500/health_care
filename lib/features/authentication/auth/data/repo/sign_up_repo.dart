@@ -8,7 +8,7 @@ import 'package:health_care/features/authentication/auth/data/models/sign_up_mpd
 
 
 Future<SignUpModel> signUpRepo({required String fullName,required String phone,required  String password})async{
-  Response response = await ApiServices().getDio.post(
+  Response response = await ApiServices.dio.post(
     '/users',
     data: {
       'name': fullName,

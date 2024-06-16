@@ -56,6 +56,14 @@ class RoutingHelper {
       case StringsRouting.mainScreen:
         return _PageRouting.page(settings, MainScreenView());
 
+    // case StringsRouting.doctorInfo:
+    //   return _PageRouting.page(
+    //       settings,
+    //       BlocProvider(
+    //         create: (context) => RatingCubit(),
+    //         child: DoctorInfoView(),
+    //       ));
+
       case StringsRouting.doctorInfo:
         return _PageRouting.page(settings, DoctorInfoView());
 
@@ -68,24 +76,38 @@ class RoutingHelper {
       case StringsRouting.profileGeneralInfo:
         return _PageRouting.page(settings, CustomGeneralInfo());
 
+    // case StringsRouting.doctorsDepartments:
+    //   return _PageRouting.page(settings, CustomDoctorsDepartments());
+
       case StringsRouting.doctorsDepartments:
-        return _PageRouting.page(settings, CustomDoctorsDepartments());
+        return _PageRouting.page(
+            settings,
+            BlocProvider(
+              create: (context) => ChooseDoctorDepartmentCubit(),
+              child: CustomDoctorsDepartments(),
+            ));
 
       case StringsRouting.historyAppointments:
         return _PageRouting.page(settings, HistoryAppointments());
 
-      case StringsRouting.createReport:
-        return _PageRouting.page(settings, CreateReport());
+    // case StringsRouting.createReport:
+    //   return _PageRouting.page(settings, CreateReport());
 
       case StringsRouting.setSchedule:
-        return _PageRouting.page(settings, SetSchedule());
+        return _PageRouting.page(settings, SetScheduleSharf());
+
+      case StringsRouting.CreateDoctorAccount:
+        return _PageRouting.page(settings, CreateDoctorAccount());
 
       case StringsRouting.testXRay:
         return _PageRouting.page(
             settings,
             BlocProvider(
-              create: (context) => TakeXRayImageCubit(),
-              child: TestXRay(),
+              create: (context) =>CheckXRayCubit(),
+              child: BlocProvider(
+                create: (context) => TakeXRayImageCubit(),
+                child: TestXRay(),
+              ),
             ));
 
 
@@ -100,20 +122,30 @@ class RoutingHelper {
       case StringsRouting.notifications:
         return _PageRouting.page(settings, Notifications());
 
-      case StringsRouting.report:
-        return _PageRouting.page(
-            settings,
-            BlocProvider(
-              create: (context) => ReportDetailsCubit(),
-              child: CustomReport(),
-            ));
 
-      // case StringsRouting.reportDetails:
-      //   return _PageRouting.page(settings, ReportDetailsByAi()); //todo
+    // case StringsRouting.report:
+    //   return _PageRouting.page(
+    //       settings,
+    //       BlocProvider(
+    //         create: (context) => ReportDetailsCubit(),
+    //         child: CustomReport(),
+    //       ));
+
+    // case StringsRouting.reportDetails:
+    //   return _PageRouting.page(settings, ReportDetailsByAi()); //todo
+
+      case StringsRouting.myReportsPatient:
+        return _PageRouting.page(settings, MyReportsPatient());
+
+      case StringsRouting.allPatients:
+        return _PageRouting.page(settings, AllPatients());
+
+      case StringsRouting.myReportsDoctor:
+        return _PageRouting.page(settings, MyReportsDoctor());
 
       default:
         return _PageRouting.page(settings, SplashView());
-      //return MaterialPageRoute(builder: (_) => SplashView());
+    //return MaterialPageRoute(builder: (_) => SplashView());
     }
   }
 
@@ -125,7 +157,7 @@ class RoutingHelper {
     Navigator.pushNamedAndRemoveUntil(
       context,
       StringsRouting.onboarding,
-      (route) => false,
+          (route) => false,
     );
   }
 
@@ -133,7 +165,7 @@ class RoutingHelper {
     Navigator.pushNamedAndRemoveUntil(
       context,
       StringsRouting.userType,
-      (route) => false,
+          (route) => false,
     );
   }
 
@@ -166,11 +198,11 @@ class RoutingHelper {
   }
 
   static void navToMainScreen(BuildContext context) {
-    context.read<CurrentUserDataCubit>().currentUserData(context: context);
+    context.read<GetPopularDoctorsCubit>().getPopularDoctors(context: context);
     Navigator.pushNamedAndRemoveUntil(
       context,
       StringsRouting.mainScreen,
-      (route) => false,
+          (route) => false,
     );
   }
 
@@ -210,17 +242,36 @@ class RoutingHelper {
     Navigator.pushNamed(context, StringsRouting.report);
   }
 
-  static void navToCreateReport(BuildContext context) {
-    Navigator.pushNamed(context, StringsRouting.createReport);
+  // static void navToCreateReport(BuildContext context) {
+  //   Navigator.pushNamed(context, StringsRouting.createReport);
+  // }
+
+  static void navToMyReportDoctor(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.myReportsDoctor);
+  }
+
+  static void navToMyReportPatient(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.myReportsPatient);
   }
 
   static void navToTestXRay(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.testXRay);
   }
+
   static void navToSetSchedule(BuildContext context) {
     Navigator.pushNamed(context, StringsRouting.setSchedule);
   }
-  // static void navToReportDetails(BuildContext context) {    //todo
-  //   Navigator.pushNamed(context, StringsRouting.reportDetails);
-  // }
+
+  static void navToAllPatients(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.allPatients);
+  }
+
+  static void navToCreateDoctorAccount(BuildContext context) {
+    Navigator.pushNamed(context, StringsRouting.CreateDoctorAccount);
+  }
+
+
+// static void navToReportDetails(BuildContext context) {    //todo
+//   Navigator.pushNamed(context, StringsRouting.reportDetails);
+// }
 }

@@ -62,7 +62,7 @@ class CustomEditProfileItem extends StatelessWidget {
                       autofocus: true,
                       onSubmitted: onSubmitted,
                       suffixIcon: GestureDetector(
-                          onTap: suffixOnTap,
+                          onTap:suffixOnTap,
                           child: Icon(Icons.check),
                        ),
                   )
@@ -73,10 +73,10 @@ class CustomEditProfileItem extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   if (editState is EditNameChanged) {
-                    context.read<EditNameCubit>().editProfileName(canEdit: !canEdit);
+                    context.read<EditGeneralInfoCubit>().editProfileName(canEditName: !canEdit);
                   }
                   if (editState is EditPhoneChanged) {
-                    context.read<EditPhoneCubit>().editProfilePhone(canEdit: !canEdit);
+                    context.read<EditGeneralInfoCubit>().editProfilePhone(canEditPhone: !canEdit);
                   }
                   if (editState is EditSpecialtyChanged) {
                     context.read<EditSpecialtyCubit>().editProfileSpecialty(canEdit: !canEdit);

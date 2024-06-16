@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/features/features_exports.dart';
+import 'package:intl/intl.dart';
 
 class BookAppointmentTime extends StatelessWidget {
-  BookAppointmentTime({Key? key}) : super(key: key);
+  BookAppointmentTime({
+    Key? key,
+
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<String> days = context.read<CreateAppointmentCubit>().days;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: CustomBackAppBar(
@@ -25,7 +30,7 @@ class BookAppointmentTime extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: FixedVariables.heightScreenQuery(context) * 0.04,
+              height: FixedVariables.heightScreenQuery(context) * 0.02,
             ),
             Text(
               "Select Date",
@@ -41,45 +46,50 @@ class BookAppointmentTime extends StatelessWidget {
             ),
 
             SizedBox(
-              height: FixedVariables.heightScreenQuery(context) * 0.03,
+              height: FixedVariables.heightScreenQuery(context) * 0.02,
             ),
 
             Text(
-              "Select Time",
+              "Available days",
               style: TextStyleHelper.style14B,
             ),
             SizedBox(
-              height: FixedVariables.heightScreenQuery(context) * 0.02,
+              height: FixedVariables.heightScreenQuery(context) * 0.01,
             ),
+
             Expanded(
                 child: Container(
                   width: FixedVariables.widthScreenQuery(context),
-                  child: GridView.builder(
-                   itemCount: 6,
-                    padding: EdgeInsets.all(0),
-                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: FixedVariables.widthScreenQuery(context)*0.29,
-                      crossAxisSpacing: 6,
-                      mainAxisSpacing: 6,
-                      childAspectRatio: 2/1,
+                  child: Scrollbar(
+                    thumbVisibility: true,
+                    thickness: 3,
+                    child: GridView.builder(
+                     itemCount: days.length,
+                      padding: EdgeInsets.all(0),
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: FixedVariables.widthScreenQuery(context)*0.29,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 2/0.6,
 
-                    ),
-                    itemBuilder: (context,index){
-                      return Container(
-                        child: Center(
-                          child: Text(
-                            "8:00 AM",
-                            style: TextStyleHelper.style12B.copyWith(color: ColorHelper.mainColor),
+                      ),
+                      itemBuilder: (context,index){
+                        return Container(
+                          child: Center(
+                            child: Text(
+                              "${days[index]}",
+                              style: TextStyleHelper.style10B.copyWith(color: ColorHelper.mainColor),
+                            ),
                           ),
-                        ),
-                        decoration: BoxDecoration(
-                          color: ColorHelper.mainShadow.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(FixedVariables.radius8)
-                        ),
+                          decoration: BoxDecoration(
+                            color: ColorHelper.mainShadow.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(FixedVariables.radius8)
+                          ),
 
-                      );
-                    }
-                ),
+                        );
+                      }
+                                    ),
+                  ),
                 ),
               ),
 
@@ -92,7 +102,16 @@ class BookAppointmentTime extends StatelessWidget {
               ),
               child: CustomButton(
                   onPressed: (){
-                    RoutingHelper.navToBookAppointmentInfo(context);
+                    DateTime? selectedDateInt = context.read<CreateAppointmentCubit>().dateTimeInt ;
+                    String dayName = DateFormat('EEEE').format(selectedDateInt??DateTime.now());
+                    print(selectedDateInt);
+                    print(dayName);
+                    if(days.contains(dayName)){
+                      RoutingHelper.navToBookAppointmentInfo(context);
+                    }else{
+                      showSnackbar(context: context, message: "please choose available day", backGroundColor: ColorHelper.redColor);
+                    }
+
                   },
                   text: "Next",
               ),

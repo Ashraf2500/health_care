@@ -1,11 +1,14 @@
-part of 'edit_phone_cubit.dart';
-
-@immutable
-abstract class EditPhoneState extends EditState{}
-
-class EditPhoneInitial extends EditPhoneState {}
-
-class EditPhoneChanged extends EditPhoneState {
-  bool canEdit ;
-  EditPhoneChanged({required this.canEdit});
-}
+// part of 'edit_phone_cubit.dart';
+//
+// @immutable
+// abstract class EditPhoneState extends EditState{}
+//
+// class EditPhoneInitial extends EditPhoneState {}
+//
+// class EditPhoneChanged extends EditPhoneState {
+//   bool canEdit ;
+//   EditPhoneChanged({required this.canEdit});
+// }
+//
+// class SuccessEditPhoneState extends EditPhoneState {}
+// class ErrorEditPhoneState extends EditPhoneState {}

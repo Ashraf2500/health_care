@@ -52,21 +52,23 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
 
-  void login({required BuildContext context, required String phone, required String password}) {
-    //RoutingHelper.navToMainScreen(context);  //todo
+  void login({required BuildContext context, required String phone, required String password}) async{
       if (loginFormKey.currentState!.validate()) {
         loginFormKey.currentState!.save();
-        _signIn(context:context, phone: phone,  password: password);
+         await _signIn(context:context, phone: phone,  password: password);
+        await context.read<CurrentUserDataCubit>().currentUserData(context: context);
+        // show Success Snackbar
+        showSnackbar(context:context,message:"login Successful", backGroundColor: ColorHelper.mainColor);
+
+
+        emit(SuccessLoginState());
       }
 
   }
-
-  void _signIn({required BuildContext context, required String phone, required String password}) async{
+  Future<void> _signIn({required BuildContext context, required String phone, required String password}) async{
     try{
       emit(LoadingLoginState());
       LoginModel loginData = await loginRepo(phone: phone, password: password);
-      emit(SuccessLoginState(loginData: loginData.data));
-
       //save token and user type in Services and cash
       ApiServices.token =loginData.data!.token;
       CacheHelper.saveData(key: "token", value:loginData.data!.token);
@@ -76,13 +78,6 @@ class LoginCubit extends Cubit<LoginState> {
       final _userTypeCash = loginData.data!.user!.role ;
       _checkUserType(_userTypeCash, context);
 
-      // show Success Snackbar
-      showSnackbar(context:context,message:"login Successful", backGroundColor: ColorHelper.greenColor.shade500);
-
-      // navigation to main screen
-      Future.delayed(const Duration(seconds: 3), () {
-        RoutingHelper.navToMainScreen(context);
-      });
 
     }on DioException catch (exception) {
       ApiServices messageErrorServer = ApiServices();

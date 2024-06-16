@@ -3,15 +3,23 @@ import 'package:health_care/features/features_exports.dart';
 
 
 class CustomTopicOfCreateReport extends StatelessWidget {
-  const CustomTopicOfCreateReport({
+   CustomTopicOfCreateReport({
     Key? key,
     required this.topicTitle,
+    required this.textController,
+    required this.currentIndex,
+     required this.state
   }) : super(key: key);
 
   final String topicTitle;
+  TextEditingController  textController ;
+  ConvertSoundState  state ;
+  int currentIndex ;
+
   @override
   Widget build(BuildContext context) {
-
+    String lastWordD =  context.read<ConvertSoundCubit>().lastWordsDiagnosis;
+    int currentIndexCubit =  context.read<ConvertSoundCubit>().currentIndex;
     return SizedBox(
       height: FixedVariables.heightScreenQuery(context)*0.65,
       child: Padding(
@@ -37,17 +45,23 @@ class CustomTopicOfCreateReport extends StatelessWidget {
                 );
               },
             ),
-            TextField(
-                maxLines: null,
-                expands: true,
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                  fillColor: Colors.transparent,
-                  hintText: 'write a $topicTitle here . . .',
-                  hintStyle: TextStyleHelper.style16R.copyWith(color: ColorHelper.grayText.withOpacity(0.6)),
-                  filled: true,
-                )
-            ),
+            Stack(
+              children: [
+                (  state is  !SpeechListening )? TextField(
+                    maxLines: null,
+                    expands: true,
+                    controller: textController,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                      fillColor: Colors.transparent,
+                      hintText: 'write a $topicTitle here . . .',
+                      hintStyle: TextStyleHelper.style16R.copyWith(color: ColorHelper.grayText.withOpacity(0.6)),
+                      filled: true,
+                    )
+                ) : SizedBox(),
+                (  state is  SpeechListening )?Text("$lastWordD"):SizedBox()
+              ],
+            )
           ],
         ),
       ),

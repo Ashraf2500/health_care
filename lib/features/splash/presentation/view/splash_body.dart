@@ -45,6 +45,7 @@ class _SplashBodyState extends State<SplashBody> with TickerProviderStateMixin {
               }
               ApiServices.token=token;
               RoutingHelper.navToMainScreen(context);
+              await context.read<CurrentUserDataCubit>().currentUserData(context: context);
 
 
             } else {

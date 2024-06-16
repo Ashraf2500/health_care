@@ -7,16 +7,21 @@ class CheckXRayDiagnosis extends StatelessWidget {
   const CheckXRayDiagnosis({
     Key? key,
     required this.image,
+    required this.results,
   }) : super(key: key);
   final File image;
+  final CovidResultModel results;
+
+
   @override
   Widget build(BuildContext context) {
+    String? resultCheck = results.prediction?.toLowerCase();
     return Scaffold(
       appBar: CustomBackAppBar(
         context: context,
         title: "X-Ray Diagnosis",
         centerTitle: true,
-        hasArrowBack: false,
+        hasArrowBack: true,
         titleColor: ColorHelper.whiteColor,
         backgroundColor: ColorHelper.mainColor,
         arrowColor: ColorHelper.whiteColor,
@@ -41,7 +46,7 @@ class CheckXRayDiagnosis extends StatelessWidget {
           SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.symmetric(
-                vertical: FixedVariables.heightScreenQuery(context) * 0.04,
+                vertical: FixedVariables.heightScreenQuery(context) * 0.02,
                 horizontal: FixedVariables.widthScreenQuery(context) * 0.04,
               ),
               margin: EdgeInsets.only(
@@ -65,125 +70,6 @@ class CheckXRayDiagnosis extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          width: FixedVariables.widthScreenQuery(context) *
-                              0.16,
-                          height:
-                          FixedVariables.heightScreenQuery(context) *
-                              0.06,
-                          child: Center(
-                            child: SvgPicture.asset(
-                              ImageHelper.whiteLogo,
-                              width:
-                              FixedVariables.widthScreenQuery(context) *
-                                  0.08,
-                            ),
-                          ),
-                          decoration: BoxDecoration(
-                            color: ColorHelper.mainColor,
-                            borderRadius: BorderRadius.only(
-                              topRight:
-                              Radius.circular(FixedVariables.radius8),
-                              bottomLeft:
-                              Radius.circular(FixedVariables.radius8),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        padding: EdgeInsets.symmetric(
-                          horizontal:
-                          FixedVariables.widthScreenQuery(context) *
-                              0.03,
-                          vertical:
-                          FixedVariables.heightScreenQuery(context) *
-                              0.02,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: ColorHelper.mainColor),
-                          borderRadius:
-                          BorderRadius.circular(FixedVariables.radius8),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "Patient Name : ",
-                                  style: TextStyleHelper.style10B,
-                                ),
-                                Text(
-                                  "Ashraf hatem Omara",
-                                  style: TextStyleHelper.style10B.copyWith(
-                                      color: ColorHelper.grayText),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: FixedVariables.heightScreenQuery(
-                                  context) *
-                                  0.006,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Age : ",
-                                  style: TextStyleHelper.style10B,
-                                ),
-                                Text(
-                                  "23",
-                                  style: TextStyleHelper.style10B.copyWith(
-                                      color: ColorHelper.grayText),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: FixedVariables.heightScreenQuery(
-                                  context) *
-                                  0.006,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Gender : ",
-                                  style: TextStyleHelper.style10B,
-                                ),
-                                Text(
-                                  "male",
-                                  style: TextStyleHelper.style10B.copyWith(
-                                      color: ColorHelper.grayText),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: FixedVariables.heightScreenQuery(
-                                  context) *
-                                  0.006,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Report Date : ",
-                                  style: TextStyleHelper.style10B,
-                                ),
-                                Text(
-                                  "17-05-2024  20:18",
-                                  style: TextStyleHelper.style10B.copyWith(
-                                      color: ColorHelper.grayText),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
                   SizedBox(
                     height:
                     FixedVariables.heightScreenQuery(context) * 0.02,
@@ -208,11 +94,11 @@ class CheckXRayDiagnosis extends StatelessWidget {
                             height: FixedVariables.heightScreenQuery(context)*0.01,
                           ),
                           Text(
-                            "Positive",
+                            "${results.prediction?.replaceAll("COVID-19 ", "")}",
                             style: TextStyleHelper.style16B.copyWith(color: ColorHelper.mainColor),
                           ),
                           Text(
-                            "Pneumonia",
+                            "Covid 19",
                             style: TextStyleHelper.style16B.copyWith(color: ColorHelper.mainColor),
                           ),
                           SizedBox(
@@ -264,12 +150,47 @@ class CheckXRayDiagnosis extends StatelessWidget {
                         left:
                         FixedVariables.widthScreenQuery(context) *
                             0.05),
-                    child: Text(
-                      "The diagnostic results suggest that the patient is exhibiting signs of pneumonia. Pneumonia can be caused by various pathogens, including bacteria, viruses, and fungi. Given the current global situation with the COVID-19 pandemic, it is prudent to consider the possibility of COVID-19 infection, especially if the patient is exhibiting symptoms consistent with COVID-19 or has been in contact with individuals known to have the virus.",
+                    child: (resultCheck!.contains("positive"))
+                        ?Text(
+                      "The results indicate a high probability of contracting Covid-19, and this may cause coughing and loss of the sense of smell and taste, and if the infection is serious, it may cause chest tightness and breathing disorders. These patients may require hospitalization to receive necessary treatment, including oxygen or intensive care.",
+                      style: TextStyleHelper.style12R
+                          .copyWith(color: ColorHelper.grayText),
+                    )
+                        :Text(
+                      "The results indicate that you are negative for infection with Corona disease. If you suffer from any symptoms, it is best to seek help from a doctor",
                       style: TextStyleHelper.style12R
                           .copyWith(color: ColorHelper.grayText),
                     ),
                   ),
+                  SizedBox(
+                    height:
+                    FixedVariables.heightScreenQuery(context) * 0.02,
+                  ),
+                (resultCheck!.contains("positive"))
+                    ?Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Methods of prevention",
+                        style: TextStyleHelper.style14B,
+                      ),
+                      SizedBox(
+                        height:
+                        FixedVariables.heightScreenQuery(context) * 0.01,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left:
+                            FixedVariables.widthScreenQuery(context) *
+                                0.05),
+                        child: Text(
+                          "1- Wearing Masks: It is advised to wear masks or face coverings in public places and when in close proximity to others, to reduce the spread of the virus through respiratory droplets. \n\n 2- Frequent Handwashing: Hands should be washed with soap and water for at least 20 seconds, especially after coughing or sneezing, before eating, and after using the bathroom. \n\n 3- Maintaining Social Distancing: Avoid large gatherings and direct contact with others as much as possible, and maintain a safe distance from others (such as at least six feet). \n\n 4- Avoiding Touching Face with Unwashed Hands: Touching the eyes, nose, and mouth with unwashed hands should be avoided, as the virus can enter the body through these routes. \n\n 5- Cleaning and Disinfecting Frequently Touched Surfaces: Surfaces and objects touched by many people should be regularly cleaned and disinfected, such as doors, door handles, phones, and remote controls. \n 6- Vaccination: Vaccination against COVID-19 is considered one of the most important means to prevent infection and reduce the risk of severe symptoms.",
+                          style: TextStyleHelper.style12R
+                              .copyWith(color: ColorHelper.grayText),
+                        ),
+                      ),
+                    ],
+                  ):SizedBox(),
                   SizedBox(
                     height:
                     FixedVariables.heightScreenQuery(context) * 0.03,

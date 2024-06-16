@@ -1,2 +1,2 @@
-export 'presentation/view/schedule_view.dart';
-export 'presentation/manager/schedule_manager_exports.dart';
+export 'data/schedule_data_exports.dart';
+export 'presentation/schedule_presentation_exports.dart';

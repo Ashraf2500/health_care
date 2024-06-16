@@ -7,6 +7,7 @@ class GitDoctorInfoInitial extends GetDoctorInfoState {}
 
 class GitDoctorInfoChanged extends GetDoctorInfoState {
   int index ;
-  GitDoctorInfoChanged({required this.index});
+  PopularDoctorsData popularDoctorsData;
+  GitDoctorInfoChanged({required this.index, required  this.popularDoctorsData});
 
 }

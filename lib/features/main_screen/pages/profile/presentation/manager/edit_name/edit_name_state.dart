@@ -1,12 +1,23 @@
 part of 'edit_name_cubit.dart';
 
 @immutable
-abstract class EditNameState extends EditState {}
+abstract class EditGeneralInfoState extends EditState {}
 
-class EditNameInitial extends EditNameState {}
+class EditGeneralInfoInitial extends EditGeneralInfoState {}
 
-class EditNameChanged extends EditNameState {
-  bool canEdit ;
-
-  EditNameChanged({required this.canEdit});
+class EditNameChanged extends EditGeneralInfoState {
+  bool canEditName = false ;
+  EditNameChanged({required this.canEditName});
 }
+
+class EditPhoneChanged extends EditGeneralInfoState {
+  bool canEditPhone = false;
+  EditPhoneChanged({required this.canEditPhone});
+}
+
+class EditAvatarChanged extends EditGeneralInfoState {
+  bool canEditAvatar = false;
+  EditAvatarChanged({required this.canEditAvatar});
+}
+class SuccessEditNameState extends EditGeneralInfoState {}
+class ErrorEditNameState extends EditGeneralInfoState {}

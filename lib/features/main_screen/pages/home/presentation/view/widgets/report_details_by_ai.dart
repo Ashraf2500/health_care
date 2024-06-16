@@ -21,6 +21,7 @@ class ReportDetailsByAi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("listOfMedicine $listOfMedicine");
     return Scaffold(
       appBar: CustomBackAppBar(
         context: context,

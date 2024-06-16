@@ -17,7 +17,7 @@ void showSnackbar({required BuildContext context , required String message ,requ
         horizontal: FixedVariables.widthScreenQuery(context)*0.05,
         vertical: FixedVariables.heightScreenQuery(context)*0.025,
       ),
-      duration: Duration(milliseconds:durationMSeconds?? 3000),
+      duration: Duration(milliseconds:durationMSeconds?? 1500),
 
     ),
   );

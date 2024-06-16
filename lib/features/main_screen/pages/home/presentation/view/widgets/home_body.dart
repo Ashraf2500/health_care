@@ -21,7 +21,7 @@ class HomeBody extends StatelessWidget {
         .read<UserTypeCubit>()
         .userType;
     return Padding(
-      padding: EdgeInsets.only(left: FixedVariables.ScreenPadding22),
+      padding: EdgeInsets.only(left: FixedVariables.widthScreenQuery(context)*0.035),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -47,7 +47,7 @@ class HomeBody extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding:
-                    EdgeInsets.symmetric(horizontal: _widthScreen * 0.025),
+                    EdgeInsets.symmetric(horizontal: _widthScreen * 0.03),
                     child: GestureDetector(
                       onTap: () {
                         if (_userTypeData == UserTypeData.patient) {
@@ -55,12 +55,16 @@ class HomeBody extends StatelessWidget {
                             RoutingHelper.navToHistoryAppointments(context);
                           }
                           else if (index == 1) {
-                            RoutingHelper.navToDoctorsDepartments(context);
+                            context.read<GetPatientReportsCubit>().getPatientReports(context: context);
+                            RoutingHelper.navToMyReportPatient(context);
                           }
                           else if (index == 2) {
-                            RoutingHelper.navToChatBot(context);
+                            RoutingHelper.navToDoctorsDepartments(context);
                           }
                           else if (index == 3) {
+                            RoutingHelper.navToChatBot(context);
+                          }
+                          else if (index == 4) {
                             RoutingHelper.navToTestXRay(context);
                           }
                         }
@@ -72,15 +76,27 @@ class HomeBody extends StatelessWidget {
                             RoutingHelper.navToHistoryAppointments(context);
                           }
                           else if (index == 2) {
-                            RoutingHelper.navToTestXRay(context);
+                            context.read<GetDoctorReportsCubit>().getDoctorReports(context: context);
+                            RoutingHelper.navToMyReportDoctor(context);
                           }
                           else if (index == 3) {
+                            RoutingHelper.navToTestXRay(context);
+                          }
+                          else if (index == 4) {
                             RoutingHelper.navToChatBot(context);
                           }
                         }
                         if (_userTypeData == UserTypeData.admin) {
                           if (index == 0) {
                             RoutingHelper.navToDoctorsDepartments(context);
+                          }
+                          if (index == 1) {
+                            context.read<GetAllPatientsCubit>().getAllPatient(context: context);
+                            RoutingHelper.navToAllPatients(context);
+
+                          }
+                          if (index == 2) {
+                            RoutingHelper.navToCreateDoctorAccount(context);
                           }
                         }
                       },

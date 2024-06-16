@@ -21,7 +21,9 @@ class ImageHelper {
   static const mainLogo   = "$_svg/logo/logo.svg";
   static const whiteLogo   = "$_svg/logo/logo_white.svg";
 
-  static const historyIcon  = "$_svgIcon/history.svg";
+  static const reportIcon  = "$_svgIcon/history.svg";
+  static const HistoryIcon  = "$_svgIcon/history_appointment.svg";
+  static const compete_report  = "$_svgIcon/compete_report.svg";
   static const chatBotIcon  = "$_svgIcon/chatBot.svg";
   static const messageBot  = "$_svgIcon/messageBot.svg";
   static const messageBot1  = "$_svgIcon/messageBot1.svg";
@@ -54,6 +56,15 @@ class ImageHelper {
   static const dentists_department  = "$_svgIcon/fill_icons/dentist_department.svg";
   static const heart_department  = "$_svgIcon/fill_icons/heart_department.svg";
   static const bones_department  = "$_svgIcon/fill_icons/bones_department.svg";
+
+  static const baby_department  = "$_svgIcon/fill_icons/baby.svg";
+  static const baby_mother_department  = "$_svgIcon/fill_icons/baby_mother.svg";
+  static const dermatology_department  = "$_svgIcon/fill_icons/dermatology.svg";
+  static const eyes_department  = "$_svgIcon/fill_icons/eyes.svg";
+  static const internal_medicine_department  = "$_svgIcon/fill_icons/internal-medicine.svg";
+  static const pneumonia_department  = "$_svgIcon/fill_icons/pneumonia.svg";
+  static const pregnant_women_department  = "$_svgIcon/fill_icons/pregnant-women.svg";
+  static const urology_department  = "$_svgIcon/fill_icons/urology.svg";
 
 
   static const personFillIcon  = "$_svgIcon/fill_icons/person_fill_icon.svg";
@@ -135,6 +146,8 @@ class ImageHelper {
   static const person17 = "$_persons 17.png";
 
 
+
+  static const empty_state = "$_lottie/empty_state.json";
 
   static const lottie_1 = "$_lottie/lottie_1.json";
   static const lottie_2 = "$_lottie/lottie_2.json";

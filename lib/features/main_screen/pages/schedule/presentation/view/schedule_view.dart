@@ -8,6 +8,7 @@ class ScheduleView extends StatelessWidget {
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
     final double _widthScreen = MediaQuery.of(context).size.width;
+    final _userTypeData =context.read<UserTypeCubit>().userType;
     return Column(
       children: [
         CustomBackAppBar(
@@ -67,39 +68,13 @@ class ScheduleView extends StatelessWidget {
         //   ),
         //
         // ),
-        Flexible(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: _heightScreen * 0.01),
-            child: ListView.builder(
-                itemCount: todayAppointmentsPatients.length,
-                padding: EdgeInsets.only(top: FixedVariables.heightScreenQuery(context)*0.02),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:  EdgeInsets.only(
-                        left: _widthScreen * 0.04,
-                        right: _widthScreen * 0.04,
-                        bottom: _heightScreen*0.012,
-                    ),
-                    child: CustomAppointmentItem(
-                        index: index,
-                        showSubtitle: true,
-                        withDetails: false,
-                        withCancel: true,
-                      borderColor: ColorHelper.gray200,
-                      listOfShadow: [
-                        BoxShadow(
-                          color: ColorHelper.gray200,
-                          blurRadius: 4,
-                          spreadRadius: 1,
-                          offset: Offset(3, 1.5),
-                        ),
-                      ],
-                        listOfItems: availableAppointmentsDoctors,
-                    ),
-                  );
-                }),
-          ),
-        ),
+        (_userTypeData==UserTypeData.patient )
+            ?PatientSchedule()
+            :(_userTypeData==UserTypeData.doctor)
+            ?DoctorSchedule()
+            :AdminSchedule(),
+
+
       ],
     );
   }

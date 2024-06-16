@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/features/features_exports.dart';
+import 'package:intl/intl.dart';
 
 class CustomCalendarDate extends StatefulWidget {
-  const CustomCalendarDate({Key? key}) : super(key: key);
+   CustomCalendarDate({
+    Key? key,
 
+  }) : super(key: key);
   @override
   State<CustomCalendarDate> createState() => _CustomCalendarDateState();
 }
 
 class _CustomCalendarDateState extends State<CustomCalendarDate> {
 
-  DateTime _selectedDay = DateTime.now();
+  DateTime _selectedDate = DateTime.now();
   DateTime _focusedDay = DateTime.now();
   CalendarFormat _calendarFormat = CalendarFormat.month;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    String dayDateInit = (DateTime.now().day<10)?"0${DateTime.now().day}":DateTime.now().day.toString();
+    String monthDateInit = (DateTime.now().month<10)?"0${DateTime.now().month}":DateTime.now().month.toString();
+    String yearDateInit = DateTime.now().year.toString();
+    context.read<CreateAppointmentCubit>().setDate(date: "$yearDateInit-$monthDateInit-$dayDateInit");
+  }
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -27,7 +39,7 @@ class _CustomCalendarDateState extends State<CustomCalendarDate> {
         child: TableCalendar(
           firstDay: DateTime.now(),
           lastDay: DateTime.utc(DateTime.now().year+1, DateTime.now().month, DateTime.now().day),
-          focusedDay: _selectedDay,
+          focusedDay: _selectedDate,
           daysOfWeekHeight: FixedVariables.heightScreenQuery(context)*0.06,
 
           //---------------- Header Style --------------------------
@@ -62,12 +74,27 @@ class _CustomCalendarDateState extends State<CustomCalendarDate> {
 
           //---------------- selected Day --------------------------
           selectedDayPredicate: (day) {
-            return isSameDay(_selectedDay, day);
+            return isSameDay(_selectedDate, day);
           },
           onDaySelected: (selectedDay, focusedDay) {
             setState(() {
-              _selectedDay = selectedDay;
+              _selectedDate = selectedDay;
               _focusedDay = focusedDay;
+              print(_selectedDate.year);
+              print(_selectedDate.month);
+              print(_selectedDate.day);
+              //print(_selectedDay.);
+              String dayName = DateFormat('EEEE').format(_selectedDate);
+
+                String dayDate = (_selectedDate.day<10)?"0${_selectedDate.day}":_selectedDate.day.toString();
+                String monthDate = (_selectedDate.month<10)?"0${_selectedDate.month}":_selectedDate.month.toString();
+                String yearDate = _selectedDate.year.toString();
+
+                context.read<CreateAppointmentCubit>().setDateInt(dateInt: _selectedDate);
+                context.read<CreateAppointmentCubit>().setDate(date: "$yearDate-$monthDate-$dayDate");
+
+
+              //print("${_selectedDay.year}-${_selectedDay.month}-${_selectedDay.day}");
             });
           },
 

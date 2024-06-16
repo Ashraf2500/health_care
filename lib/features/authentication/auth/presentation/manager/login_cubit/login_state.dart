@@ -8,10 +8,7 @@ class LoginInitial extends LoginState {}
 
 class ValidationLoginState extends LoginState {}
 class LoadingLoginState extends LoginState {}
-class SuccessLoginState extends LoginState {
-  DataLogin? loginData ;
-  SuccessLoginState({required this.loginData});
-}
+class SuccessLoginState extends LoginState {}
 class ErrorLoginState extends LoginState {
   String messageError ;
   ErrorLoginState({required this.messageError});

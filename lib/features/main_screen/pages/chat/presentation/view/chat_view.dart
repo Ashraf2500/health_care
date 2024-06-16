@@ -19,71 +19,64 @@ class ChatView extends StatelessWidget {
          shadowColor: ColorHelper.mainColor,
          appBarHeight: FixedVariables.heightScreenQuery(context) * 0.07,
        ),
-      body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: FixedVariables.widthScreenQuery(context)*0.04),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: FixedVariables.heightScreenQuery(context)*0.03,
-            ),
-            Container(
-              child: CustomTextFormField(
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: ColorHelper.blackColor.withOpacity(0.7),
-                  size: 25,
-                ),
-                suffixIcon: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Icon(
-                    Icons.close,
-                    color: ColorHelper.grayText.withOpacity(0.7),
-                    size: 20,
+      body: BlocBuilder<ProfileChatCubit,ProfileChatState>(
+        builder: (context,StateProfileChat) {
+          if(StateProfileChat is LoadingProfileChatState){
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }else if(StateProfileChat is SuccessProfileChatState){
+            return Padding(
+              padding:  EdgeInsets.symmetric(horizontal: FixedVariables.widthScreenQuery(context)*0.04),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: FixedVariables.heightScreenQuery(context)*0.03,
                   ),
-                ),
-                hintText: "search ",
-                backgroundFilled: ColorHelper.whiteColor,
-                borderColor: ColorHelper.gray300,
-              ),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: ColorHelper.grayText.withOpacity(0.4),
-                    blurRadius: 8,
-                    spreadRadius: 1,
-                    offset: Offset(2, 3),
+
+                  // Text(
+                  //   "All Messages",
+                  //   style: TextStyleHelper.style14B,
+                  // ),
+                  // SizedBox(
+                  //   height: FixedVariables.heightScreenQuery(context) * 0.02,
+                  // ),
+                  Flexible(
+                    child: ListView.builder(
+                        itemCount: StateProfileChat.listOfProfileChatData.length,
+                        padding: EdgeInsets.all(0),
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: (){
+                              context.read<PrivateChatCubit>().GetAllPrivateChat(context: context, destinationId: StateProfileChat.listOfProfileChatData[index].destination?.id);
+                              Navigator.push(context, PageTransition(
+                                child: ContentChatView(nameDestination:StateProfileChat.listOfProfileChatData[index].destination!.name ,),
+                                type: PageTransitionType.fade,
+                                curve: Curves.fastEaseInToSlowEaseOut,
+                                duration: Duration(milliseconds: FixedVariables.pageTransition),
+                              ));
+                            },
+                            child: Padding(
+                              padding:  EdgeInsets.only(bottom: FixedVariables.heightScreenQuery(context)*0.01),
+                              child: CustomPersonChatItem(
+                                index: index,
+                                listOfItems: StateProfileChat.listOfProfileChatData,
+                              ),
+                            ),
+                          );
+                        }),
                   ),
+
                 ],
               ),
-            ),
-            SizedBox(
-              height: FixedVariables.heightScreenQuery(context) * 0.04,
-            ),
-            // Text(
-            //   "All Messages",
-            //   style: TextStyleHelper.style14B,
-            // ),
-            // SizedBox(
-            //   height: FixedVariables.heightScreenQuery(context) * 0.02,
-            // ),
-            Flexible(
-              child: ListView.builder(
-                  itemCount: todayAppointmentsPatients.length,
-                  padding: EdgeInsets.all(0),
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding:  EdgeInsets.only(bottom: FixedVariables.heightScreenQuery(context)*0.01),
-                      child: CustomPersonChatItem(
-                        index: index,
-                        listOfItems: availableAppointmentsDoctors,
-                      ),
-                    );
-                  }),
-            ),
-
-          ],
-        ),
+            );
+          }else {
+            return Container(
+              child: Text("error"), //todo error
+            );
+          }
+        }
       ),
     );
   }

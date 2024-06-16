@@ -1,6 +1,5 @@
 import 'dart:ffi';
 
-import 'package:bloc/bloc.dart';
 import 'package:health_care/features/features_exports.dart';
 import 'package:meta/meta.dart';
 
@@ -8,46 +7,64 @@ part 'more_popular_doctors_state.dart';
 
 class MorePopularDoctorsCubit extends Cubit<MorePopularDoctorsState> {
 
-  MorePopularDoctorsCubit() : super(MorePopularDoctorState(
-      popularDoctorItems: (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)
-          ? FixedVariables.initialNumPopularDoctors
-          : listOfPopularDoctors.length,
-      canMore: (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)
-          ? true
-          : false));
+  MorePopularDoctorsCubit() : super(
+      MorePopularDoctorsInitial()
+      // MorePopularDoctorState(
+      // popularDoctorItems: (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)
+      //     ? FixedVariables.initialNumPopularDoctors
+      //     : listOfPopularDoctors.length,
+      // canMore: (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)
+      //     ? true
+      //     : false
+      // )
+  );
 
 
-  int newPopularDoctorItems = (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)
-      ? FixedVariables.initialNumPopularDoctors*2
-      : listOfPopularDoctors.length;
+  // int newPopularDoctorItems = (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)
+  //     ? FixedVariables.initialNumPopularDoctors*2
+  //     : listOfPopularDoctors.length;
+  int newPopularDoctorItems = 0;
 
-  bool canMore = (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)?true:false;
+  //bool canMore = (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)?true:false;
+  bool canMore = false;
 
 
 
-  int numberAllItemsList = listOfPopularDoctors.length;
+  // int numberAllItemsList = listOfPopularDoctors.length;
+  // int initialNumItems = FixedVariables.initialNumPopularDoctors;
+  // int step = FixedVariables.stepMorePopularDoctor;
+
+
   int initialNumItems = FixedVariables.initialNumPopularDoctors;
   int step = FixedVariables.stepMorePopularDoctor;
 
 
-  void morePopularDoctor() {
-    if(newPopularDoctorItems+step<numberAllItemsList){
+  void initPopularDoctor({ required List<PopularDoctorsData> doctors}){
+      newPopularDoctorItems = (doctors.length >= FixedVariables.initialNumPopularDoctors*2)
+        ? FixedVariables.initialNumPopularDoctors*2
+         : doctors.length;
+
+     canMore = (doctors.length > FixedVariables.initialNumPopularDoctors)?true:false;
+  }
+
+  void morePopularDoctor( { required List<PopularDoctorsData> doctors} ) {
+    if(newPopularDoctorItems+step<doctors.length){
       newPopularDoctorItems += step;
     }
     else {
-      newPopularDoctorItems = numberAllItemsList;
+      newPopularDoctorItems = doctors.length;
       canMore = false ;
     }
 
     emit(MorePopularDoctorState(popularDoctorItems: newPopularDoctorItems, canMore: canMore));
   }
 
-  void lessPopularDoctor(){
-     newPopularDoctorItems = (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)
+  void lessPopularDoctor({ required List<PopularDoctorsData> doctors}){
+     newPopularDoctorItems = (doctors.length > FixedVariables.initialNumPopularDoctors)
         ? FixedVariables.initialNumPopularDoctors*2
-        : listOfPopularDoctors.length;
+        : doctors.length;
 
-     canMore = (listOfPopularDoctors.length > FixedVariables.initialNumPopularDoctors)?true:false;
+     canMore = (doctors.length > FixedVariables.initialNumPopularDoctors)?true:false;
 
      emit(MorePopularDoctorState(popularDoctorItems: newPopularDoctorItems, canMore: canMore));
   }

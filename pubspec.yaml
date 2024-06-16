@@ -57,6 +57,14 @@ dependencies:
   shared_preferences: ^2.2.3
   local_auth: ^2.2.0
   local_auth_ios: ^1.1.7
+  shimmer: ^3.0.0
+  permission_handler: ^11.3.1
+  awesome_dialog: 3.2.1
+  skeletonizer: ^1.2.0
+  intl: ^0.18.1
+  speech_to_text: ^6.6.2
+  highlight_text: ^1.7.0
+  avatar_glow: ^3.0.1
 
 dev_dependencies:
   flutter_test:

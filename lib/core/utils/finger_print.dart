@@ -52,6 +52,8 @@ class FingerPrint {
         }
         ApiServices.token=token;
         RoutingHelper.navToMainScreen(context);
+        await context.read<CurrentUserDataCubit>().currentUserData(context: context);
+
 
       }
       else if(token == null && authenticate){

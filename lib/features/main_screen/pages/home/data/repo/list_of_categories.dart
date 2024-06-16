@@ -4,7 +4,11 @@ Map<String,List<Category>>AllCategories = {
   StringsApp.patientUser :[
     Category(
       label: "History",
-      image: ImageHelper.historyIcon,
+      image: ImageHelper.compete_report,
+    ),
+    Category(
+      label: "Reports",
+      image: ImageHelper.reportIcon,
     ),
     Category(
       label: "Doctors",
@@ -28,7 +32,11 @@ Map<String,List<Category>>AllCategories = {
     ),
     Category(
       label: "History",
-      image: ImageHelper.historyIcon,
+      image: ImageHelper.compete_report,
+    ),
+    Category(
+      label: "Reports",
+      image: ImageHelper.reportIcon,
     ),
     Category(
       label: "Test X-ray",

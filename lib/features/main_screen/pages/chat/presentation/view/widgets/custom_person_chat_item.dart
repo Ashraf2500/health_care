@@ -14,7 +14,7 @@ class CustomPersonChatItem extends StatelessWidget {
   }) : super(key: key);
 
   int index ;
-  List<AppointmentModel> listOfItems;
+  List<AllProfileChatData> listOfItems;
   Color? messageColor ;
   Color? timeColor ;
   bool newMessage ;
@@ -58,7 +58,7 @@ class CustomPersonChatItem extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage(listOfItems[index].image),
+                      image: AssetImage(ImageHelper.person1),// todo listOfItems[index].destination?.avatar
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -73,13 +73,13 @@ class CustomPersonChatItem extends StatelessWidget {
                       height: _heightScreen*0.006,
                     ),
                     Text(
-                      "${listOfItems[index].name}",
+                      "${listOfItems[index].destination?.name}",
                       style: TextStyleHelper.style14B,
                     ),
                     Container(
                       width: _widthScreen*0.51,
                       child: Text(
-                        "${listOfItems[index].specialist}",
+                        "${listOfItems[index].content??"Hello"}",
                         style: TextStyleHelper.style14R.copyWith(color:messageColor??ColorHelper.grayText),
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -89,23 +89,8 @@ class CustomPersonChatItem extends StatelessWidget {
                         SizedBox(
                           width: FixedVariables.widthScreenQuery(context)*0.57,
                         ),
-                        Align(
-                          alignment:Alignment.topRight,
-                          child: Container(
-                            height: FixedVariables.heightScreenQuery(context)*0.025,
-                            width: FixedVariables.widthScreenQuery(context)*0.07,
-                            child: Center(
-                              child: Text(
-                                "8",
-                                style: TextStyleHelper.style8R.copyWith(color: ColorHelper.whiteColor),
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              color: ColorHelper.mainColor,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
+                        //todo
+
                       ],
                     ),
                   ],
@@ -123,7 +108,7 @@ class CustomPersonChatItem extends StatelessWidget {
               margin: EdgeInsets.symmetric(horizontal:FixedVariables.widthScreenQuery(context)*0.04 ).copyWith(top: _heightScreen*0.01),
               child: Center(
                 child: Text(
-                  "8:32",
+                  "0${listOfItems[index].destination?.createdAt?.hour}:0${listOfItems[index].destination?.createdAt?.minute}",
                   style: TextStyleHelper.style10R,
                 ),
               ),

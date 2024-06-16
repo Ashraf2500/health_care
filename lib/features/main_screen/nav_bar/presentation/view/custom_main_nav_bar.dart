@@ -13,7 +13,7 @@ class CustomMainNavBar extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       onTap: (index) {
-        context.read<MainNavBarCubit>().chooseNavPage(indexPage: index);
+        context.read<MainNavBarCubit>().chooseNavPage(context: context,indexPage: index);
       },
       currentIndex:currentPge,
       items: [

@@ -107,19 +107,19 @@ class _LoginBodyState extends State<LoginBody> {
                         SizedBox(
                           height: _heightScreen * 0.01,
                         ),
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: InkWell(
-                            onTap: () {
-                              RoutingHelper.navToTakePhone(context);
-                            },
-                            child: Text(
-                              "Forget Password",
-                              style: TextStyleHelper.style12B
-                                  .copyWith(color: ColorHelper.mainColor),
-                            ),
-                          ),
-                        ),
+                        // Align(
+                        //   alignment: Alignment.topRight,
+                        //   child: InkWell(
+                        //     onTap: () {
+                        //       RoutingHelper.navToTakePhone(context);
+                        //     },
+                        //     child: Text(
+                        //       "Forget Password",
+                        //       style: TextStyleHelper.style12B
+                        //           .copyWith(color: ColorHelper.mainColor),
+                        //     ),
+                        //   ),
+                        // ),
 
                         Spacer(),
                         CustomButton(

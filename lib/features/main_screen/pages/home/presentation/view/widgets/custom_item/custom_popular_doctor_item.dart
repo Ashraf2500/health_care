@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/core/utils/check_department_of_doctor_func.dart';
 import 'package:health_care/features/features_exports.dart';
 
 class CustomPopularDoctorItem extends StatelessWidget {
    CustomPopularDoctorItem({
     Key? key,
     required this.index,
+    required this.popularDoctors,
   }) : super(key: key);
 
   int index ;
+  List<PopularDoctorsData> popularDoctors ;
 
   @override
   Widget build(BuildContext context) {
     final double _heightScreen = MediaQuery.of(context).size.height;
     return GestureDetector(
         onTap: (){
-          context.read<GetDoctorInfoCubit>().getDoctorInfo(index);
+          context.read<GetDoctorInfoCubit>().getDoctorInfo(index: index,popularDoctorsData: popularDoctors[index]);
           RoutingHelper.navToDoctorInfo(context);
+          context.read<GetDoctorScheduleCubit>().getDoctorSchedule(context: context, doctorId:  popularDoctors[index].id??"");
         },
       child: Card(
         child: Container(
@@ -39,7 +43,8 @@ class CustomPopularDoctorItem extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(top: Radius.circular(FixedVariables.radius16)),
                   image: DecorationImage(
                     image: AssetImage(
-                      "${listOfPopularDoctors[index].image}",
+                     // "${listOfPopularDoctors[index].image}",
+                      "${ImageHelper.doctor_6}",
                     ),
                     fit: BoxFit.fill,
                   ),
@@ -49,22 +54,24 @@ class CustomPopularDoctorItem extends StatelessWidget {
               SizedBox(
                 height: _heightScreen * 0.02,
               ),
-              Expanded(
+              Flexible(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${listOfPopularDoctors[index].name}",
+                      "Dr.${popularDoctors[index].name}",
+                      //"${popularDoctors[index].name}",
                       style: TextStyleHelper.style10B,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      "${listOfPopularDoctors[index].specialist}",
+                      "${checkDepartmentOfDoctorFunc(departmentId: popularDoctors[index].speciality)}",
                       style: TextStyleHelper.style8R,
                       overflow: TextOverflow.ellipsis,
                     ),
                     RatingBar.builder(
-                      initialRating: listOfPopularDoctors[index].evaluate,
+                      initialRating: (popularDoctors[index].ratingPoints==null)?0:popularDoctors[index].ratingPoints!.toDouble() ,
+                      //initialRating: (popularDoctors[index]!.rating!=null)?((popularDoctors[index]!.rating)*1.0):0.0,
                       minRating: 1,
                       direction: Axis.horizontal,
                       allowHalfRating: true,

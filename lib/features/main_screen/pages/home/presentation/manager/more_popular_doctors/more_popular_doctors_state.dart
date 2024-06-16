@@ -4,10 +4,10 @@ part of 'more_popular_doctors_cubit.dart';
 abstract class MorePopularDoctorsState {}
 
 class MorePopularDoctorsInitial extends MorePopularDoctorsState {
-  int? popularDoctorItems;
-  bool? canMore ;
-
-  MorePopularDoctorsInitial({required this.popularDoctorItems, required this.canMore});
+  // int? popularDoctorItems;
+  // bool? canMore ;
+  //
+  // MorePopularDoctorsInitial({required this.popularDoctorItems, required this.canMore});
 }
 class MorePopularDoctorState extends MorePopularDoctorsState {
   int? popularDoctorItems;
